@@ -68,7 +68,10 @@ function scene:create( event )
 	
 	-- 시간 제한 --
 
-	local limit=15
+	local result = composer.getVariable("flag")
+
+
+	local limit=5
 	local showLimit = display.newText(limit,display.contentWidth*0.9,display.contentHeight*0.1)
 	showLimit:setFillColor(0)
 	showLimit.size = 80
@@ -111,7 +114,7 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
-		composer.removeScene("view1")
+		composer.removeScene("View01_cat")
 	end
 end
 
