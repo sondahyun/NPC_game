@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------------------
 --
--- bear_game.lua
+-- View01_bear.lua
 --
 -----------------------------------------------------------------------------------------
 
@@ -38,20 +38,25 @@ function scene:create( event )
 	
 	local objects = {"딸기", "땅콩", "버섯", "사과", "쓰래기봉지", "콜라캔"}
 
+	local object = { }	
+	local i=1
+	local objectGroup = display.newGroup()
 	local function spawn()
 		local objIdx = math.random(#objects)
 		local objName = objects[objIdx]
-		local object= display.newImage("Content/PNG/bear/" .. objName .. ".png")
-		object.x = display.contentWidth*0.5 + math.random(-500, 500)
-		object.y = 0
+		object[i]= display.newImageRect(objectGroup,"Content/PNG/bear/" .. objName .. ".png", 100, 100)
+		object[i].x = display.contentWidth*0.5 + math.random(-490, 490)
+		object[i].y = 0
 		if objIdx <5 then
-			object.type="food"
+			object[i].type="food"
 		else
-			object.type="trash"
+			object[i].type="trash"
 		end
-		physics.addBody(object)
-		object.name='object'
+		physics.addBody(object[i])
+		object[i].name='object'
+		i = i+1
 	end
+
 	
 	local function scriptremove(event)
 		section.alpha=0
@@ -68,8 +73,9 @@ function scene:create( event )
 	end
 
 	local function pagemove()
-		display.remove(object)
+		display.remove(objectGroup)
 		display.remove(floor)
+		Runtime:removeEventListener("key", onKeyEvent)
 		display.remove(bear)
 	end
 
@@ -86,6 +92,10 @@ function scene:create( event )
 			end
 
 			if score<0 then
+				timer.cancel( timer1 )
+				pagemove()
+				composer.removeScene("View01_bear")
+				composer.gotoScene("View01_bear_fail")
 
 			elseif score == 5 then
 				timer.cancel( timer1 )
@@ -106,12 +116,13 @@ function scene:create( event )
 	bear:addEventListener("collision", onCollision)
 	floor:addEventListener("collision", onCollision2)
 	
-	
+
 	sceneGroup:insert(background)
 	sceneGroup:insert(showScore)
-	--sceneGroup:insert(object)
 	sceneGroup:insert(floor)
 	sceneGroup:insert(bear)
+	sceneGroup:insert(section)
+	sceneGroup:insert(script)
 end
 
 function scene:show( event )
