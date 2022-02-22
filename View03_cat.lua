@@ -9,13 +9,32 @@ local scene = composer.newScene()
 
 function scene:create( event )
 	local sceneGroup = self.view
+    local flag=1
 	
 	local ending = display.newText(" ",display.contentCenterX,display.contentCenterY)
-	ending.size = 250
+	ending.size = 180
 
-    ending.text="FAIL!! 다시시작"
-    local button = display.newImageRect("Content/PNG/cat/미니게임옵션_다시하기.png",150*1.5,200*1.1)
-	button.x,button.y=display.contentWidth*0.7,display.contentHeight*0.4
+    ending.text="FAIL! 다시 하고싶다면 아래 버튼을 눌러주세요"
+    composer.setVariable("flag",true)
+    local button = display.newImageRect("Content/PNG/cat/미니게임옵션_다시하기.png",150*8.5,200*1.7)
+	button.x,button.y=display.contentWidth*0.5,display.contentHeight*0.8
+
+
+    sceneGroup:insert(ending)
+    sceneGroup:insert(button)
+
+    local function tapp(event)
+		display.remove(event.target)
+		flag=0
+
+		if flag==0 then
+            composer.removeScene("View03_cat")
+			composer.gotoScene("View01_cat")
+		end
+	end
+
+	button:addEventListener("tap",tapp)
+	
 end
 
 function scene:show( event )
@@ -43,6 +62,7 @@ function scene:hide( event )
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
 		-- Called when the scene is now off screen
+        
 	end
 end
 
