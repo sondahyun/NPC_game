@@ -19,7 +19,7 @@ function scene:create( event )
 	local fish = { }
 	local fishGroup=display.newGroup()
 
-	for i=1,8 do
+	for i=1,12 do
 		if i%2==0 then
 			fish[i] = display.newImage(fishGroup,"Content/PNG/cat/물고기2.png")
 		else
@@ -56,18 +56,19 @@ function scene:create( event )
 		score=score+1
 		showScore.text=score
 
-		if score==8 then
-			composer.gotoScene("view2")
+		if score==12 then
+			composer.setVariable("complete",true)
+			composer.gotoScene("View02_cat")
 		end
 	end
 
-	for i=1,8 do
+	for i=1,12 do
 		fish[i]:addEventListener("tap",catch)
 	end
 	
 	-- 시간 제한 --
 
-	local limit=20
+	local limit=15
 	local showLimit = display.newText(limit,display.contentWidth*0.9,display.contentHeight*0.1)
 	showLimit:setFillColor(0)
 	showLimit.size = 80
@@ -79,7 +80,7 @@ function scene:create( event )
 
 		if limit == 0 then
 			composer.setVariable("complete",false)
-			composer.gotoScene("view2")
+			composer.gotoScene("View02_cat")
 		end
 	end
 
