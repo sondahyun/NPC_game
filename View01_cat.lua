@@ -15,8 +15,7 @@ function scene:create( event )
 		local background = display.newImageRect("Content/PNG/cat/배경.png", display.contentWidth, display.contentHeight)
 		background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-		local pond = display.newImageRect("Content/PNG/cat/스테이지2물고기.png",150*7,200*6)
-		pond.x,pond.y=display.contentWidth*0.5,display.contentHeight*0.7
+		local pond = display.newCircle(display.contentWidth*0.6,display.contentHeight/2,350)
 
 		local fish = { }
 		local fishGroup=display.newGroup() 
@@ -33,8 +32,6 @@ function scene:create( event )
 		sceneGroup:insert(fishGroup)
 
 		--고양이 소환--
-		local cat = display.newImageRect("Content/PNG/cat/스테이지1고양이.png",150*1.3,200*1.3)
-		cat.x,cat.y=display.contentWidth*0.7,display.contentHeight*0.4
 
 		--스코어 출력--
 		local score=0
@@ -43,11 +40,10 @@ function scene:create( event )
 		showScore.size=99
 
 		--레이어 정리--
+		sceneGroup:insert(pond)
 		sceneGroup:insert(background)
 		sceneGroup:insert(fishGroup)
-		sceneGroup:insert(pond)
 		
-		sceneGroup:insert(cat)
 		sceneGroup:insert(showScore)
 
 		fishGroup:toFront()
