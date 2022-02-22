@@ -3,7 +3,7 @@
 -- main.lua
 --
 -----------------------------------------------------------------------------------------
-
+--test
 -- show default status bar (iOS)
 display.setStatusBar( display.DefaultStatusBar )
 
