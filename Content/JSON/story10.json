@@ -1,0 +1,30 @@
+[
+	{
+		"type" : "Narration",
+		"content" : "아무것도 먹지 못하고 다시 살던 동네로 돌아온 까미는 저 멀리서 낑낑대고 있는 강아지가 눈에 띄었습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "왜 그러고 있어?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "강아지",
+		"img" : "Content/PNG/강아지.png",
+		"content" : " 내 주인이 보이지 않아… 어떻게 해야할지 모르겠어"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "인간들은 별을 보고 소원을 빈대. 너도 한번 소원을 빌어봐"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "혹시 알아? 별님이 소원을 들어줄지"
+	}
+]

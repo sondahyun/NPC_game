@@ -1,0 +1,22 @@
+[
+	{
+		"type" : "Narration",
+		"content" : "까미는 자신을 위해 모여준 친구들에게 진심으로 감동받았습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "얘들아 고마워 너희 덕분에 나 역시 소원을 이뤘네"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "너희는 내 진정한 친구들이야!"
+	},
+	{
+		"type" : "Narration",
+		"content" : "모두가 웃고 있는 사이에 까미는 행복해보입니다."
+	}
+]

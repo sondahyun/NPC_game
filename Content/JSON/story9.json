@@ -1,0 +1,56 @@
+[
+
+	{
+		"type": "Dialogue",
+		"speaker" : "병아리",
+		"img" : "Content/PNG/병아리.png",
+		"content" : "그럼 이제...."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "....."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "병아리",
+		"img" : "Content/PNG/병아리.png",
+		"content" : "...."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "....."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "생각해보니까 그렇게 배고픈 것 같지는 않아"
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미는 자신의 배가 꼬르륵 거리는 것을 들키지 않기 위해서 최선을 다했습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "널 보내줄게 하늘을 날면서 행복해져야해"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "삑삐",
+		"img" : "Content/PNG/병아리.png",
+		"content" : "고마워 너는 이제 나에게 가족같은 존재야 내 이름은 삑삐야 네 망토는 나중에 꼭 돌려줄게"
+	},
+	
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "내 이름은 까미야"
+	}
+]

@@ -1,0 +1,60 @@
+[
+	{
+		"type": "Dialogue",
+		"speaker" : "고양이",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "자 이제 먹어볼까?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "물고기",
+		"img" : "Content/PNG/물고기.png",
+		"content" : "죽느냐 사느냐 그것이 문제로다"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "물고기",
+		"img" : "Content/PNG/물고기.png",
+		"content" : "잠시 내 말 좀 들어보게 이방인이여. 물가에서 태어난 몸이건만 나에게는 항상 그것보다 더한것을 바랐다네"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "물고기",
+		"img" : "Content/PNG/물고기.png",
+		"content" : "죽기전에 그 소원만 이루게 도와주면 안되겠는가?"
+	},
+	{
+		"type" : "Narration",
+		"content" : "고양이는 그래 저렇게 간절해보이고 마지막 소원이라는데 들어줄까라는 생각이 들었습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고양이",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "그게 뭔데?"
+	},
+		{
+		"type": "Dialogue",
+		"speaker" : "물고기",
+		"img" : "Content/PNG/물고기.png",
+		"content" : "내 소원은 산의 정상을 보는 것이라네 소문으로만 들어봤던 그곳을 직접 가보는것이 내 평생의 꿈이었지"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고양이",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "그래 소원 한 개라면 들어줄게"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "내이름은 까미. 너는?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "오필리아",
+		"img" : "Content/PNG/물고기.png",
+		"content" : "내 이름은 오필리아로다"
+	}
+]

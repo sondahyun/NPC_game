@@ -1,0 +1,36 @@
+[
+	{
+		"type" : "Narration",
+		"content" : "고슴도치는 처음 들어보는 듯한 다정한 말들에 마음이 따뜻해졌습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고슴도치",
+		"img" : "Content/PNG/고슴도치.png",
+		"content" : "고마워 네 덕분에 내가 내일을 살아갈 이유가 생긴 것 같아"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고슴도치",
+		"img" : "Content/PNG/고슴도치.png",
+		"content" : "혹시 나와 여기서 같이 지낼래?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "말은 고맙지만 안타깝게도 나는 너무 배고파서 먹이를 찾으러 가야 해"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "밤톨이",
+		"img" : "Content/PNG/고슴도치.png",
+		"content" : "그래 잘가 그래도 내 이름만은 기억해줄래? 내 이름은 밤톨이야."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "내 이름은 까미 너도 날 기억해줘야해~"
+	}
+]
