@@ -25,7 +25,7 @@ parse()
 
 local composer = require( "composer" )
 local scene = composer.newScene()
-local explosionSound = audio.loadSound( "Content/PNG/script/다시그곳으로.mp3" )
+local explosionSound = audio.loadSound( "Content/PNG/script/Click Clock.mp3" )
 audio.play( explosionSound )
 
 function scene:create( event )
