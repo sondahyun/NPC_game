@@ -1,0 +1,52 @@
+[
+	{
+		"type" : "Narration",
+		"content" : "까미는 물고기와 곰과 헤어진 후 하산을 하던 중에 가시에 찔린듯 다리가 따끔했습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "아얏!!"
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미의 눈 앞에는 서글픈 표정을 하고 있는 고슴도치가 보입니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고슴도치",
+		"img" : "Content/PNG/고슴도치.png",
+		"content" : "헉 정말 미안해 나는 지나가는 고양이에게도 상처를 주네… 내 가시는 정말 쓸모없는 것 같아.."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "아니 뭐 그렇게까지 미안해 할 필요는 없는데…"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고슴도치",
+		"img" : "Content/PNG/고슴도치.png",
+		"content" : "어떻게 그렇게 생각할 수 있는거야? 나는 너에게 상처까지 주었는데,, "
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "왜 그렇게 비관적인거야?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고슴도치",
+		"img" : "Content/PNG/고슴도치.png",
+		"content" : "나에게 장점같은건 없으니까.. "
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "내가 너의 장점을 말해줄까?"
+	}
+]

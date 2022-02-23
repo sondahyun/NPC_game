@@ -1,36 +1,33 @@
 -----------------------------------------------------------------------------------------
 --
--- view1.lua
+-- view03_dog.lua
+--
 --
 -----------------------------------------------------------------------------------------
 
---test2
 local composer = require( "composer" )
 local scene = composer.newScene()
 
 function scene:create( event )
+	local background = display.newRect(display.contentWidth/2, display.contentHeight/2,
+		display.contentWidth, display.contentHeight)
+	background:setFillColor(1)
 	local sceneGroup = self.view
-	
-	local background = display.newRect( display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
-	background:setFillColor( 1 )
-	
-	
-	sceneGroup:insert( background )
-	
-end
+	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
+	ending.size = 90
+	ending:setFillColor(0)
 
-function scene:show( event )
-	local sceneGroup = self.view
-	local phase = event.phase
-	
-	if phase == "will" then
-		-- Called when the scene is still off screen and is about to move on screen
-	elseif phase == "did" then
-		-- Called when the scene is now on screen
-		-- 
-		-- INSERT code here to make the scene come alive
-		-- e.g. start timers, begin animation, play audio, etc.
-	end	
+	local result = composer.getVariable("complete")
+	local function tap( event )
+		composer.gotoScene("view02_dog")
+	end
+
+	if result then 
+		ending.text = "소원이 모두 이루어지길"
+	else
+		ending.text = "FAIL!! 클릭해서 다시 시작"
+		background:addEventListener("tap",tap)
+	end
 end
 
 function scene:hide( event )

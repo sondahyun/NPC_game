@@ -1,0 +1,72 @@
+[
+	{
+		"type" : "Narration",
+		"content" : "까미는 저 멀리서 혼자 동떨어져있는 병아리를 보았습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "드디어 먹을만한걸 찾았어!!"
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미는 병아리를 잡아먹기 위해 전속력으로 달려갔습니다."
+	},
+	{
+		"type" : "Narration",
+		"content" : "병아리는 하늘에서 날고 있는 새들을 부럽다는 듯이 쳐다보고 있었습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "병아리",
+		"img" : "Content/PNG/병아리.png",
+		"content" : "나도 저렇게 날 수 있다면 좋을텐데"
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미는 병아리를 날렵한 손짓으로 제압하였습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "미안하지만 나의 먹이가 되어주어야겠어"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "병아리",
+		"img" : "Content/PNG/병아리.png",
+		"content" : "잠깐만!! 날 죽이기전에 소원 하나만 들어줄래? 나는 하늘을 나는게 소원이야"
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미는 잠시 데자뷰를 느꼈습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "안돼 이제는 정말 밥을 먹어야겠어 계속 이대로라면 아사할거야"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "병아리",
+		"img" : "Content/PNG/병아리.png",
+		"content" : " 너 또한 간절히 바라는 것이 있을거 아냐 너는 소원같은거 없어?"
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미는 어렸을 때 잃은 길고양이 가족 무리가 떠오르면서 혼자 남아 이루기 어려운 꿈을 꾸는 병아리가 불쌍해 보였습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "하..그래 그럼 그 소원만 이뤄주면 되는거지?"
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미는 마음에 쏙 들어 항상 두르고 다녔던 자신의 빨간 망토를 풀어서 병아리에게 둘러주었습니다."
+	}
+]

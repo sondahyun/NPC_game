@@ -1,0 +1,12 @@
+[
+	{
+		"type" : "Narration",
+		"content" : "며칠째 밥을 못 먹은 상태이다"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "고양이",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "먹이를 찾으러 돌아다녀볼까?"
+	}
+]

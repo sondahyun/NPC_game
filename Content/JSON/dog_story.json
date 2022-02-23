@@ -1,0 +1,18 @@
+[
+	{
+		"type" : "Dialogue",
+		"content" : "까미가 인간들은 별을 보고 소원을 빈다고 했었지.."
+	},
+	{
+		"type" : "Dialogue",
+		"content" : "별들을 세면 내 소원이 이루어질까?"
+	},
+	{
+		"type" : "Narration",
+		"content" : "How to play: 별들을 클릭해서 소원을 빌 수 있습니다."
+	},
+	{
+		"type" : "Dialogue",
+		"content" : "주인님이 보고싶어.."
+	}
+]

@@ -1,22 +1,72 @@
 -----------------------------------------------------------------------------------------
 --
--- view1.lua
+-- view01_dog.lua
 --
 -----------------------------------------------------------------------------------------
+-- JSON파싱--
+local json = require("json")
 
---test2
+local Data, pos, msg
+
+local function parse()
+	local filename = system.pathForFile("Content/JSON/dog_story.json")
+	Data, pos, msg = json.decodeFile(filename)
+	if Data then
+		print(Data[1].type)
+	else
+		print(pos)
+		print(print)
+	end
+end
+parse()
+
+----
+audio.stop( 1 )
+local explosionSound = audio.loadSound( "image/City Key.mp3" )
+audio.play( explosionSound )
+
 local composer = require( "composer" )
 local scene = composer.newScene()
 
 function scene:create( event )
-	local sceneGroup = self.view
-	
-	local background = display.newRect( display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
-	background:setFillColor( 1 )
-	
-	
-	sceneGroup:insert( background )
-	
+	-------------------- 배경구성
+	local background = display.newImage( "image/background.png")
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.95, display.contentWidth, display.contentHeight*0.2)
+	section:setFillColor(0.5, 0.5, 0.5, 0.5)
+
+	local script = display.newText("더미 텍스트입니다.", section.x, section.y, display.contentWidth*0., 80)
+	script.width = display.contentWidth*0.05
+	script.size = 50
+	script:setFillColor(0)
+	------------------
+
+	------대사
+	local index = 1
+	local function nextScript( ... )
+		if(index <= #Data) then
+			
+			if( Data[index].type == "Narration") then
+				script.text = Data[index].content
+				index = index + 1
+				script:setFillColor(0.9)
+			elseif(Data[index].type == "Dialogue") then
+				script.text = Data[index].content
+				script:setFillColor(1)
+				index = index + 1
+			end
+		else
+			composer.gotoScene("view02_dog")
+		end
+	end
+	nextScript()
+
+	local function tap( event )
+		nextScript()
+	end
+
+	background:addEventListener("tap",tap)
+	------
 end
 
 function scene:show( event )

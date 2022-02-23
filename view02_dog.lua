@@ -1,22 +1,65 @@
 -----------------------------------------------------------------------------------------
 --
--- view1.lua
+-- view02_dog.lua
 --
 -----------------------------------------------------------------------------------------
-
---test2
 local composer = require( "composer" )
 local scene = composer.newScene()
 
 function scene:create( event )
 	local sceneGroup = self.view
-	
-	local background = display.newRect( display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
-	background:setFillColor( 1 )
-	
-	
-	sceneGroup:insert( background )
-	
+	local background = display.newImage( "image/background.png")
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+	local sceneGroup = self.view
+	local starNum = 15;
+	local star = {}
+	local starGroup = display.newGroup()
+
+
+	for i = 1,starNum do
+		local num = math.random(1, 2);
+		star[i] = display.newImage(starGroup, "image/star"..num..".png")
+		star[i].x = background.x + math.random(-500, 500)
+		star[i].y = background.y + math.random(-900, 700)
+	end
+
+	--스코어 출력 --
+	local score = 0
+	local showScore = display.newText("소원 개수: "..score, display.contentWidth*0.8, display.contentHeight*0.1)
+	showScore:setFillColor(1)
+	showScore.size = 70
+
+	local function catch(event)
+		display.remove(event.target)
+
+		score = score + 1
+		showScore.text = "소원 개수: "..score;
+		if score == starNum then
+			composer.setVariable("complete", true)
+			composer.gotoScene("view03_dog") 
+		end
+	end
+
+	for i =1,starNum do
+		star[i]:addEventListener("tap", catch)
+	end
+	--시간 제한--
+	local limit = 15
+	local showLimit = display.newText(limit, display.contentWidth*0.9, display.contentHeight*0.5)
+	showLimit:setFillColor(0)
+	showLimit.size = 80
+	--[[sceneGroup:insert(showLimit)--]]
+	local count = 0
+	local function timeAttack(event)
+		limit = limit - 1
+		showLimit.text = limit
+		if(limit <= 0) then
+			composer.setVariable("complete", false)
+			composer.gotoScene("view03_dog")
+		end
+	end
+
+	timer.performWithDelay(1000, timeAttack, 0)
 end
 
 function scene:show( event )

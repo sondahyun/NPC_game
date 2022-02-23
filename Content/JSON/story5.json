@@ -1,0 +1,50 @@
+[
+	{
+		"type" : "Narration",
+		"content" : "까미와 오필리아는 곰이 생각보다 무서운 친구가 아닌 것을 깨달았습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "안녕 난 까미야 옆에 이 물고기는 오필리아고"
+	},
+	{
+		"type" : "Narration",
+		"content" : "곰은 자신앞에서 두려워하지 않고 서 있는 이 둘이 자신의 친구가 되어줄 수 있다고 기대하게 되었습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "곰",
+		"img" : "Content/PNG/곰.png",
+		"content" : "혹시 너희 둘 내 친구가 되어줄 수 있니?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "나는 너무 배고픈 상태라 먹이를 찾으러 가야해 이 물고기를 정상에 올려주기는 글렀어.."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/고양이.png",
+		"content" : "너가 나 대신해서 정상까지 가줄 수 있니?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "오필리아",
+		"img" : "Content/PNG/물고기.png",
+		"content" : "내가 그대의의 친우가 되어주겠소"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "박성배",
+		"img" : "Content/PNG/곰.png",
+		"content" : "좋아 내 이름은 박성배야."
+	},
+	{
+		"type" : "Narration",
+		"content" : "까미와 오필리아는 숲속 친구들이 곰을 무서워하던 이유가 이름때문은 아닌지 진지하게 고민하였습니다."
+	}
+]
