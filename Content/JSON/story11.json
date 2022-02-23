@@ -2,63 +2,89 @@
 	{
 		"type": "Dialogue",
 		"speaker" : "강아지 주인",
-		"img" : "Content/PNG/강아지주인.png",
+		"img" : "Content/PNG/script/인간.png",
 		"content" : "코코야 내가 널 얼마나 찾았는지 몰라"
 	},
 	{
 		"type" : "Narration",
-		"content" : "코코는 꼬리를 엄청 흔들다가 엉덩이까지 씰룩거리며 주인을 반겼습니다."
+		"content" : "코코는 꼬리를 엄청 흔들다가\n  엉덩이까지 씰룩거리며 주인을 반겼습니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "코코",
-		"img" : "Content/PNG/강아지.png",
+		"img" : "Content/PNG/script/강아지.png",
 		"content" : "저도 얼마나 보고싶었는지 몰라요"
 	},
 	{
 		"type" : "Narration",
-		"content" : "코코는 주인에게 달려가서 주인의 얼굴이 침 범벅이 될 때까지 핥았습니다."
+		"content" : "코코는 주인에게 달려가서 주인의\n  얼굴이 침 범벅이 될 때까지 핥았습니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "까미",
-		"img" : "Content/PNG/고양이.png",
-		"content" : " 다들 원하는바를 이뤘는데 나만 못 이뤘네.. 너무 배고프다… "
-	}
+		"img" : "Content/PNG/script/고양이.png",
+		"content" : " 다들 원하는바를 이뤘는데\n  나만 못 이뤘네.. 너무 배고프다… "
+	},
 	{
 		"type" : "Narration",
-		"content" : "까미는 위쪽에서 이름을 부르는 소리가 들렸고 고개를 위로 들었습니다."
+		"content" : "까미는 위쪽에서 이름을 부르는 소리가\n  들렸고 고개를 위로 들었습니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "삑삐",
-		"img" : "Content/PNG/병아리.png",
-		"content" : "까미야 네 망토를 돌려주러 왔어! 넌 우리에게 행복을 선물해 주었잖아 주인공에게 어울리는 빨간망토는 네게 어울려"
+		"img" : "Content/PNG/script/병아리.png",
+		"content" : "까미야 네 망토를 돌려주러 왔어! \n넌 우리에게 행복을  선물해 주었잖아"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "삑삐",
+		"img" : "Content/PNG/script/병아리.png",
+		"content" : "주인공에게 어울리는 빨간망토는 네게 어울려"
 	},
 	{
 		"type" : "Narration",
-		"content" : "다시 앞을 보니 까미 앞에는 오늘 하룻동안 봤던 동물들 모두가 다 모여있습니다."
+		"content" : "다시 앞을 보니 까미 앞에는 오늘 하룻동안 \n 봤던 동물들 모두가 다 모여있습니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "까미",
-		"img" : "Content/PNG/고양이.png",
+		"img" : "Content/PNG/script/고양이.png",
 		"content" : "무슨 일로 여기에 온거야?"
 	},
 	{
 		"type" : "Narration",
-		"content" : "친구들은 웃으며 먹을 것을 가져왔다고 입을 모아 말합니다."
+		"content" : "친구들은 웃으며 먹을 것을 \n 가져왔다고 입을 모아 말합니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "까미",
-		"img" : "Content/PNG/고양이.png",
+		"img" : "Content/PNG/script/고양이.png",
 		"content" : "근데 코코 넌 왜 다시 여기에 온거야?"
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "코코",
-		"img" : "Content/PNG/강아지.png",
+		"img" : "Content/PNG/script/강아지.png",
 		"content" : "도로명 주소를 외워서 괜찮아"
+	},
+		{
+		"type" : "Narration",
+		"content" : "까미는 자신을 위해 모여준 \n 친구들에게 진심으로 감동받았습니다."
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/script/고양이.png",
+		"content" : "얘들아 고마워 너희 \n 덕분에 나 역시 소원을 이뤘네"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "까미",
+		"img" : "Content/PNG/script/고양이.png",
+		"content" : "너희는 내 진정한 친구들이야!"
+	},
+	{
+		"type" : "Narration",
+		"content" : "모두가 웃고 있는 사이에 까미는 행복해보입니다."
 	}
 ]
