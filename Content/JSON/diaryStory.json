@@ -1,0 +1,28 @@
+[
+	{
+        "type" : "background",
+		"img" : "Content/PNG/일지_사진1.png",
+		"content" : "내가 산 정상에 와 보다니 박성배 너를 내 진정한 친구로 받아들이겠도다 ."
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/일지_사진2.png",
+		"content" : "내 본연의 매력을 깨닫게 해줘서 고마워 "
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/일지_사진3.png",
+		"content" : "하늘을 난다는 건 이런 기분이구나 너무 행복해~"
+
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/일지_사진4.png",
+		"content" : "주인을 찾아서 다행이다. 이제 도로명주소를 잘 외워둬야지"
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/일지_사진5.png",
+		"content" : "이 정도 먹이양이면 일주일은 걱정 없겠다~  "
+	}
+]
