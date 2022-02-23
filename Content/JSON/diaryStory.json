@@ -1,0 +1,28 @@
+[
+	{
+        "type" : "background",
+		"img" : "Content/PNG/diary/일지_사진1.png",
+		"img2" : "Content/PNG/diary/일지_사진1설명.png"
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/diary/일지_사진2.png",
+		"img2" : "Content/PNG/diary/일지_사진2설명.png"
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/diary/일지_사진3.png",
+		"img2" : "Content/PNG/diary/일지_사진3설명.png"
+
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/diary/일지_사진4.png",
+		"img2" : "Content/PNG/diary/일지_사진4설명.png"
+	},
+	{
+        "type" : "background",
+		"img" : "Content/PNG/diary/일지_사진5.png",
+		"img2" : "Content/PNG/diary/일지_사진5설명.png"
+	}
+]
