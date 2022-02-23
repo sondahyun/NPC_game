@@ -1,33 +1,50 @@
 -----------------------------------------------------------------------------------------
 --
--- view03_dog.lua
---
+-- start.lua
 --
 -----------------------------------------------------------------------------------------
 
+----
 local composer = require( "composer" )
 local scene = composer.newScene()
 
 function scene:create( event )
+	local sceneGroup = self.view
+	-------------------- 배경구성
 	local background = display.newRect(display.contentWidth/2, display.contentHeight/2,
 		display.contentWidth, display.contentHeight)
 	background:setFillColor(1)
-	local sceneGroup = self.view
-	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
-	ending.size = 90
-	ending:setFillColor(0)
+	
+	------------------
+	local leveltext = display.newText("", display.contentWidth/2, display.contentHeight/2)
+	leveltext.size = 90
+	leveltext:setFillColor(0)
+	local level = 2
+	leveltext.text = "Level "..level
 
-	local result = composer.getVariable("complete")
 	local function tap( event )
-		composer.gotoScene("view02_dog")
+		composer.removeScene("view02_dog_start")
+		composer.gotoScene("view04_dog")
 	end
 
-	if result then 
-		ending.text = "소원이 모두 이루어지길"
-	else
-		ending.text = "FAIL!! 클릭해서 다시 시작"
-		background:addEventListener("tap",tap)
-	end
+	background:addEventListener("tap",tap)
+	sceneGroup:insert(background)
+	sceneGroup:insert(leveltext)
+	------
+end
+
+function scene:show( event )
+	local sceneGroup = self.view
+	local phase = event.phase
+	
+	if phase == "will" then
+		-- Called when the scene is still off screen and is about to move on screen
+	elseif phase == "did" then
+		-- Called when the scene is now on screen
+		-- 
+		-- INSERT code here to make the scene come alive
+		-- e.g. start timers, begin animation, play audio, etc.
+	end	
 end
 
 function scene:hide( event )

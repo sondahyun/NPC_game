@@ -29,9 +29,11 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 
 function scene:create( event )
+	local sceneGroup = self.view
 	-------------------- 배경구성
-	local background = display.newImage( "image/background.png")
+	local background = display.newImage( "Content/PNG/dog/background.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.95, display.contentWidth, display.contentHeight*0.2)
 	section:setFillColor(0.5, 0.5, 0.5, 0.5)
 
@@ -67,6 +69,9 @@ function scene:create( event )
 
 	background:addEventListener("tap",tap)
 	------
+	sceneGroup:insert(background)
+	sceneGroup:insert(section)
+	sceneGroup:insert(script)
 end
 
 function scene:show( event )
