@@ -4,19 +4,76 @@
 --
 -----------------------------------------------------------------------------------------
 
---test2
+-- json 파싱
+local json = require('json')
+
+local Data,pos,msg
+
+local function parse()
+	local filename = system.pathForFile("Content/JSON/diaryStory.json")
+	Data,pos,msg = json.decodeFile(filename)
+
+	-- 디버그
+	if Data then
+		print(Data[1].type)
+	else
+		print(pos)
+		print(msg)
+	end
+	--
+end
+parse()
+--
+
 local composer = require( "composer" )
 local scene = composer.newScene()
+local explosionSound = audio.loadSound( "Content/music/정혁준_즐거운 추억.mp3" )
+audio.play( explosionSound )
 
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	local background = display.newRect( display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
-	background:setFillColor( 1 )
+	local background = display.newImageRect("Content/PNG/일지_배경.png", display.contentWidth, display.contentHeight)
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+
+	local speakerImg = display.newRect(display.contentWidth*0.9, display.contentHeight*0.1, 200, 200)
+	local index = 1
+
+	local button2 = display.newImageRect("Content/PNG/일지_닫기버튼.png",150*0.4,200*0.4)
+	button2.x,button2.y=display.contentWidth*0.9,display.contentHeight*0.1
+
+	local script = display.newText("더미 텍스트입니다.", display.contentWidth*0.87, display.contentHeight*0.75, display.contentWidth*0.7, 120)
+	script.width = display.contentWidth*0.6
+	script.size = 25
+	script:setFillColor(0)
 	
+	local function nextScript()
+		if(index<=#Data) then
+			if(Data[index].type == "background") then
+				speakerImg.alpha = 1
+				speakerImg.fill = {
+					type = "Image",
+					filename = Data[index].img
+				}
+				script.text = Data[index].content
+				index = index + 1
+			end
+		end
+	end
+
+	nextScript()
+
+	local function tap(event)
+		nextScript()
+	end
+	background:addEventListener("tap",tap)
 	
-	sceneGroup:insert( background )
-	
+	-- 레이어 정리
+	sceneGroup:insert(background)
+	sceneGroup:insert(speakerImg)
+	sceneGroup:insert(script)
+	sceneGroup:insert(button2)
+
 end
 
 function scene:show( event )
