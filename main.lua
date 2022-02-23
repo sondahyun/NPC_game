@@ -16,7 +16,7 @@ physics.start()
 
 -- event listeners for tab buttons:
 local function onFirstView( event )
-	composer.gotoScene( "View01_hedgehog" )
+	composer.gotoScene( "View01_bear" )
 end
 
 onFirstView()	-- invoke first tab button's onPress event manually
