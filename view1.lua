@@ -41,11 +41,6 @@ function scene:create( event )
 
 	local button2 = display.newImageRect("Content/PNG/일지_닫기버튼.png",150*0.4,200*0.4)
 	button2.x,button2.y=display.contentWidth*0.9,display.contentHeight*0.1
-
-	local script = display.newText("더미 텍스트입니다.", display.contentWidth*0.87, display.contentHeight*0.75, display.contentWidth*0.7, 120)
-	script.width = display.contentWidth*0.6
-	script.size = 25
-	script:setFillColor(0)
 	
 	local function nextScript()
 		if(index<=#Data) then
@@ -55,7 +50,6 @@ function scene:create( event )
 					type = "Image",
 					filename = Data[index].img
 				}
-				script.text = Data[index].content
 				index = index + 1
 			end
 		end
@@ -71,7 +65,6 @@ function scene:create( event )
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(speakerImg)
-	sceneGroup:insert(script)
 	sceneGroup:insert(button2)
 
 end
