@@ -36,19 +36,25 @@ function scene:create( event )
 	local background = display.newImageRect("Content/PNG/일지_배경.png", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-	local speakerImg = display.newRect(display.contentWidth*0.9, display.contentHeight*0.1, 200, 200)
+	local speakerImg = display.newRect(display.contentCenterX, display.contentHeight*0.7, 900, 900)
+	local speaker = display.newRect(display.contentCenterX, display.contentHeight*0.2, 700, 700)
 	local index = 1
 
 	local button2 = display.newImageRect("Content/PNG/일지_닫기버튼.png",150*0.4,200*0.4)
-	button2.x,button2.y=display.contentWidth*0.9,display.contentHeight*0.1
+	button2.x,button2.y=display.contentWidth*0.95,display.contentHeight*0.05
 	
 	local function nextScript()
 		if(index<=#Data) then
 			if(Data[index].type == "background") then
 				speakerImg.alpha = 1
 				speakerImg.fill = {
-					type = "Image",
+					type = "image",
 					filename = Data[index].img
+				}
+				speaker.alpha = 1
+				speaker.fill = {
+					type = "image",
+					filename = Data[index].img2
 				}
 				index = index + 1
 			end
@@ -65,6 +71,7 @@ function scene:create( event )
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(speakerImg)
+	sceneGroup:insert(speaker)
 	sceneGroup:insert(button2)
 
 end
