@@ -100,7 +100,7 @@ function scene:create( event )
 			elseif score == 5 then
 				timer.cancel( timer1 )
 				pagemove()
-				composer.gotoScene( "view1" )
+				composer.gotoScene( "View01_bear_success" )
 			end
 		end
 	end
