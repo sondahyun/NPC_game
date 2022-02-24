@@ -31,12 +31,13 @@ audio.play( explosionSound )
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	local background = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("Content/PNG/script/background/오후들판.png", display.contentWidth, display.contentHeight)
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.8, display.contentWidth, display.contentHeight*0.3)
-	section:setFillColor(0.2, 0.2, 0.2, 0.2)
+	section:setFillColor(0.8, 0.8, 0.8, 0.8)
 
-	local speakerImg = display.newRect(section.x - 360, section.y - 400, 300, 300)
+	local speakerImg = display.newRect(section.x - 360, section.y - 580, 600, 600)
 
 	local speaker = display.newText("더미 텍스트", section.x-400, section.y-75)
 	speaker.size = 80
@@ -49,7 +50,7 @@ function scene:create( event )
 
 	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
 	ending.size = 90
-	ending:setFillColor(0)
+	ending:setFillColor(1)
 
 	local index = 1
 		local function nextScript( ... )
