@@ -50,7 +50,7 @@ function scene:create( event )
 
 	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
 	ending.size = 90
-	ending:setFillColor(0)
+	ending:setFillColor(1)
 
 	local index = 1
 		local function nextScript( ... )
