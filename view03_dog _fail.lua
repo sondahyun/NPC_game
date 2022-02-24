@@ -26,7 +26,7 @@ function scene:create( event )
 	local function retrybtntap(event)
 		composer.gotoScene("view02_dog")
 	end
-	timer.performWithDelay(1000, timeAttack, 0)
+	timer.performWithDelay(0, timeAttack, 0)
 	background:addEventListener("tap",retrybtntap)
 	
 
