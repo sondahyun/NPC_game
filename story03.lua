@@ -30,13 +30,14 @@ audio.play( explosionSound )
 
 function scene:create( event )
 	local sceneGroup = self.view
-	
-	local background = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
+
+	local background = display.newImage( "Content/PNG/script/배경/개울1.png")
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.8, display.contentWidth, display.contentHeight*0.3)
-	section:setFillColor(0.2, 0.2, 0.2, 0.2)
+	section:setFillColor(0.8, 0.8, 0.8, 0.8)
 
-	local speakerImg = display.newRect(section.x - 360, section.y - 400, 300, 300)
+	local speakerImg = display.newRect(section.x - 360, section.y - 580, 600, 600)
 
 	local speaker = display.newText("더미 텍스트", section.x-250, section.y-75)
 	speaker.size = 80
