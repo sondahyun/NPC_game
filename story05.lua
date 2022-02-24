@@ -31,7 +31,7 @@ audio.play( explosionSound )
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	local background = display.newImage( "Content/PNG/script/배경/산속.png")
+	local background = display.newImage( "Content/PNG/script/background/산속.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.8, display.contentWidth, display.contentHeight*0.3)
