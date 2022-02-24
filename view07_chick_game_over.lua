@@ -2,11 +2,11 @@
 
 local composer = require( "composer" )
 local scene = composer.newScene()
-local loadsave = require( "loadsave" )
+--local loadsave = require( "loadsave" )
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local background = display.newImageRect("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png",display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("Content/PNG/chick/배경.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 
@@ -16,35 +16,49 @@ function scene:create( event )
 	transition.to(background1,{alpha=0.5,time=1000})
 	sceneGroup:insert(background1)
 
-	local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/3.6294896, display.contentHeight/2.83122739)
+	--[[local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/3.6294896, display.contentHeight/2.83122739)
 	board.x , board.y = display.contentWidth/2, display.contentHeight/2
 	board.alpha = 0.5
 	transition.to(board,{alpha=1,time=1000})
-	sceneGroup:insert(board)
+	sceneGroup:insert(board)]]
 
 	local score3 = composer.getVariable("score")
-	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/2+32,"font/잘풀리는오늘 Medium.ttf") 
+	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/2+32) 
 	showScore1:setFillColor(1,0,0)
 	showScore1.size = 60
 	sceneGroup:insert(showScore1)
 
-	local loadedSettings = loadsave.loadTable( "settings.json" ) 
-	loadedSettings.money = loadedSettings.money + score3
-	print(loadedSettings.money)
-	loadsave.saveTable(loadedSettings, "settings.json")
-
-	local function gomap(event)
-		if event.phase == "began" then--view20ring
-				composer.removeScene("view20ring")
-				composer.gotoScene( "view01Map" )
+	local function backtogame(event)
+		if event.phase == "began" then 
+				composer.removeScene("view07_chick_game_over")
+				composer.gotoScene("view04_chick_game_start")
 		end
 	end
 
-	local backtomap =display.newImageRect("이미지/미니게임/미니게임_지도로 돌아가기 버튼.png",display.contentWidth/6.112,display.contentHeight/17.3050)
+	local function gomap(event)
+		if event.phase == "began" then--view20ring
+				composer.removeScene("view07_chick_game_over")
+				composer.gotoScene( "view1" )
+		end
+	end
+
+	local backtomap =display.newImageRect("Content/PNG/chick/중경.png",display.contentWidth/6.112,display.contentHeight/17.3050)
 	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/1.65466
 	sceneGroup:insert(backtomap)
 	backtomap:addEventListener("touch",gomap)
-	
+
+	local returnto = display.newText("다시하기",display.contentWidth/2, display.contentHeight/2)
+	returnto.size = 100
+	returnto.alpha = 0
+	returnto.x = display.contentWidth/2
+	returnto.y = display.contentHeight/2 + 200
+	sceneGroup:insert(returnto)
+
+	if score3 < 15 then
+		returnto.alpha = 1
+		backtomap.alpha = 0
+		returnto:addEventListener("touch",backtogame)
+	end
 
 end
 
@@ -72,7 +86,7 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
-		composer.removeScene("view20ring")
+		composer.removeScene("view07_chick_game_over")
 	end
 end
 

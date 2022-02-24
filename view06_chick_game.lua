@@ -13,64 +13,47 @@ function scene:create( event )
 
 	local value1 = {}
 	for i=1,10 do
-		value1[i] = math.random(0,400)
+		value1[i] = math.random(0,200)
 	end
 
 	local value2 = {}
 	for i=1,10 do
-		value2[i] = display.contentWidth*0.46875 + i * display.contentWidth*0.20833333 -500
+		value2[i] = display.contentWidth*0.46875 + value1[i]*1.5 --* display.contentWidth*0.20833333 -500
 	end
 	
 	--배경화면
-	local bg = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png", display.contentWidth, display.contentHeight)
+	local bg = display.newImage("Content/PNG/chick/배경.png", display.contentWidth, display.contentHeight)
     bg.x = display.contentWidth/2
     bg.y = display.contentHeight/2
     sceneGroup:insert(bg)
 
 	--객체
-	local user = display.newImageRect("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 플레이어(보라마을).png", display.contentWidth/13, display.contentHeight/4)
-	user.x = display.contentWidth/6.4
-	user.y = display.contentHeight/3.5
-	user.rotation = 50
-	physics.addBody(user, "dynamic", {density=.10, friction=.2, bounce=0.2, radius=15})
+	local user = display.newImageRect("Content/PNG/chick/병아리.png", display.contentWidth/13, display.contentHeight/13)
+	user.x = display.contentWidth/5
+	user.y = display.contentHeight/1.6
+	user.rotation = -40
+	physics.addBody(user, "dynamic", {density=.08, friction=0.1, bounce=1.0, radius=15})
 	sceneGroup:insert(user)
 
 --그룹
-	local rint = {}
-	local rintGroup = display.newGroup()
 	
-    local inv4 = {}
-	local inv3 = {}
     local walld = {}
     for i=1,10 do
-        walld[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링(보라마을).png")
-        walld[i].x = value2[i]*1.3
-        walld[i].y = display.contentHeight*0.5555 + value1[i] - display.contentHeight*0.0925925
+        walld[i] = display.newImageRect("Content/PNG/chick/장애물.png", display.contentWidth/13, display.contentHeight/4)
+        walld[i].x = display.contentWidth*i*0.5 + 400
+        walld[i].y = value2[i]*1.7
         sceneGroup:insert(walld[i])
-        --physics.addBody(walld[i], "static")   
-
-		inv4[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링4(보라마을).png")
-		inv4[i].x = value2[i]*1.3
-		inv4[i].y = display.contentHeight*0.12037037 + value1[i] - display.contentHeight*0.0925925 --130
-		sceneGroup:insert(inv4[i])
-		physics.addBody(inv4[i], "static")
-
-		inv3[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링1(보라마을).png")
-		inv3[i].x = value2[i]*1.3
-		inv3[i].y = display.contentHeight*1.004629 + value1[i] - display.contentHeight*0.0925925 --1085
-		sceneGroup:insert(inv3[i])
-		physics.addBody(inv3[i], "static")
-       
+        physics.addBody(walld[i], "static")   
 	end
 
     
 
 	--all()
-	local inv1 = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 투명줄(보라마을).png")
+	local inv1 = display.newImage("Content/PNG/chick/투명줄.png")
 	inv1.x = 0
 	inv1.y = -display.contentHeight * 0.00925 -- -10
 	physics.addBody(inv1, "static")
-	local inv2 = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 투명줄(보라마을).png")
+	local inv2 = display.newImage("Content/PNG/chick/투명줄.png")
 	inv2.x = 0
 	inv2.y = display.contentHeight * 1.00925926
 	physics.addBody(inv2, "static")
@@ -79,41 +62,43 @@ function scene:create( event )
 	sceneGroup:insert(inv2)
 
 
+	--function--
 
-
-	--function
-	function movewall(self, event)
+	function movewall(self, event) -- 장애물 움직임
 		if self.x < -display.contentWidth*2.08333 then --4000
-			self.x = display.contentWidth*1.04166 --2000
+			self.x = display.contentWidth*111.04166 --2000
 		else
 			self.x = self.x - 5	
 		end
     end
     
     for i=1, 10 do
-        walld[i].enterFrame = movewall
+        walld[i].enterFrame = movewall --장애물 움직임
         Runtime:addEventListener("enterFrame", walld[i])
-        inv3[i].enterFrame = movewall
-        Runtime:addEventListener("enterFrame", inv3[i])
-        inv4[i].enterFrame = movewall
-        Runtime:addEventListener("enterFrame", inv4[i])
     end
 
 	function activeUser(self, event)
 		self:applyForce(0, -1.5, self.x, self.y)
 	end
 
+	--[[function activeUser1(self, event)
+		self:applyForce(0, 0.3, self.x, self.y)
+	end]]
+
 	function touchScreen(event)
 		if event.phase == "began" then
-			user.enterFrame = activeUser
+			user.enterFrame = activeUser --위로 이동함
 			Runtime:addEventListener("enterFrame", user)
 		end
 		
 		if event.phase == "ended" then
 			Runtime:removeEventListener("enterFrame", user)
+			--user.enterFrame = activeUser1
+			--Runtime:addEventListener("enterFrame", user)
 		end
+		--Runtime:removeEventListener("enterFrame", user)
 	end
-
+	--Runtime:removeEventListener("enterFrame", user)
 	Runtime:addEventListener("touch",touchScreen)
 
 	--timer
@@ -129,11 +114,7 @@ function scene:create( event )
 			inv2:removeEventListener( "collision" )
 
 			for i=1,10 do
-    
-       			inv3[i]:removeEventListener( "collision" )
-        		inv4[i]:removeEventListener( "collision" )
-        		Runtime:removeEventListener("enterFrame", inv3[i])
-        		Runtime:removeEventListener("enterFrame", inv4[i])
+    			walld[i]:removeEventListener("collision")
         		Runtime:removeEventListener("enterFrame", walld[i])
 			end
 
@@ -143,8 +124,8 @@ function scene:create( event )
          	display.remove(user)
 
 			composer.setVariable("score", time)
-			composer.removeScene("view19ring") --game
-			composer.gotoScene("view20ring") --gameover
+			composer.removeScene("view06_chick_game") --game
+			composer.gotoScene("view07_chick_game_over") --gameover
 
 			timer.cancel( event.source )
 	 
@@ -158,32 +139,23 @@ function scene:create( event )
  
 		if ( event.phase == "began" ) then
 
-
-
 			inv1:removeEventListener( "collision" )
 			inv2:removeEventListener( "collision" )
 
 			for i=1,10 do
-    
-       			inv3[i]:removeEventListener( "collision" )
-        		inv4[i]:removeEventListener( "collision" )
-        		Runtime:removeEventListener("enterFrame", inv3[i])
-        		Runtime:removeEventListener("enterFrame", inv4[i])
+    			walld[i]:removeEventListener("collision")
         		Runtime:removeEventListener("enterFrame", walld[i])
 			end
 
 			composer.setVariable("score", time)
-			--transition.
 			timer.cancel(tmr)
 
 			Runtime:removeEventListener("touch",touchScreen)
 			Runtime:removeEventListener("enterFrame", user)
 
          	display.remove(user)
-         	
-
-			composer.removeScene("view19ring")
-			composer.gotoScene("view20ring")
+			composer.removeScene("view06_chick_game")
+			composer.gotoScene("view07_chick_game_over")
 	 
 		
 			
@@ -199,12 +171,12 @@ function scene:create( event )
 	inv2:addEventListener( "collision" )
 
     for i=1,10 do
-        --walld[i].collision = onLocalCollision
-        --walld[i]:addEventListener( "collision" )
-        inv3[i].collision = onLocalCollision
+        walld[i].collision = onLocalCollision
+        walld[i]:addEventListener( "collision" )
+        --[[inv3[i].collision = onLocalCollision
         inv3[i]:addEventListener( "collision" )
         inv4[i].collision = onLocalCollision
-        inv4[i]:addEventListener( "collision" )
+        inv4[i]:addEventListener( "collision" )]]
 	end
 	
 	
@@ -236,7 +208,7 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
-		composer.removeScene("view19ring")
+		composer.removeScene("view06_chick_game")
 	end
 end
 

@@ -17,6 +17,21 @@ function scene:create( event )
 	
 	sceneGroup:insert( background )
 	
+	--샘플 볼륨 이미지
+    local volumeButton = display.newImage("Content/PNG/설정/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", options )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+    local home = audio.loadStream( "음악/음악샘플.mp3" )
+    audio.setVolume( 0.5 )
+    audio.play(home)
+
 end
 
 function scene:show( event )
