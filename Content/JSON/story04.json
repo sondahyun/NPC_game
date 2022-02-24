@@ -1,7 +1,7 @@
 [
 	{
 		"type" : "Narration",
-		"content" : "까미는 산을 넘기가 너무 힘들어 \n헉헉거렸습니다."
+		"content" : "까미는 산을 넘기가 너무 힘들어\n 헉헉거렸습니다."
 	},
 	{
 		"type": "Dialogue",
@@ -11,7 +11,7 @@
 	},
 	{
 		"type" : "Narration",
-		"content" : "갑자기멀리서 쿵쿵거리는 소리가 들렸습니다"
+		"content" : "갑자기 멀리서\n 쿵쿵거리는 소리가 들렸습니다"
 	},
 	{
 		"type": "Dialogue",
@@ -21,12 +21,18 @@
 	},
 	{
 		"type" : "Narration",
-		"content" : "까미와 오필리아는 순간 너무 놀라서 \n얼어붙어버렸습니다."
+		"content" : "까미와 오필리아는 순간 너무 놀라서\n 얼어붙어버렸습니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "곰",
 		"img" : "Content/PNG/script/곰.png",
-		"content" : "왜 모두들 나를 무서워하는거야? \n난 그저 친구를 만들고 싶은건데…"
+		"content" : "왜 모두들 나를 무서워하는거야?"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "곰",
+		"img" : "Content/PNG/script/곰.png",
+		"content" : "난 그저 친구를 만들고 싶은건데…"
 	}
 ]

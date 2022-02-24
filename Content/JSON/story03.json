@@ -15,17 +15,27 @@
 		"type": "Dialogue",
 		"speaker" : "물고기",
 		"img" : "Content/PNG/script/물고기.png",
-		"content" : "잠시 내 말 좀 들어보게 이방인이여.물가에서 태어난 \n 몸이건만 나에게는 항상 그것보다 더한것을 바랐다네"
+		"content" : "잠시 내 말 좀 들어보게 이방인이여"
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "물고기",
 		"img" : "Content/PNG/script/물고기.png",
-		"content" : "죽기전에 그 소원만 이루게 도와주면 안되겠는가?"
+		"content" : "물가에서 태어난 몸이건만 나는\n 항상 그것보다 더한것을 바랐다네"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "물고기",
+		"img" : "Content/PNG/script/물고기.png",
+		"content" : "죽기전에 그 소원만 이루게\n 도와주면 안되겠는가?"
 	},
 	{
 		"type" : "Narration",
-		"content" : "고양이는 그래 저렇게 간절해보이고 마지막 \n 소원이라는데 들어줄까라는 생각이 들었습니다."
+		"content" : "고양이는 그래 저렇게 간절해보이고"
+	},
+	{
+		"type" : "Narration",
+		"content" : "마지막 소원이라는데 들어줄까라는\n 생각이 들었습니다."
 	},
 	{
 		"type": "Dialogue",
@@ -33,11 +43,17 @@
 		"img" : "Content/PNG/script/고양이.png",
 		"content" : "그게 뭔데?"
 	},
-		{
+	{
 		"type": "Dialogue",
 		"speaker" : "물고기",
 		"img" : "Content/PNG/script/물고기.png",
-		"content" : "내 소원은 산의 정상을 보는 것이라네 소문으로만 \n들어봤던 그곳을 직접 가보는것이 내 평생의 꿈이었지"
+		"content" : "내 소원은 산의 정상을 보는 것이라네"
+	},
+	{
+		"type": "Dialogue",
+		"speaker" : "물고기",
+		"img" : "Content/PNG/script/물고기.png",
+		"content" : "소문으로만 들어봤던 그곳을\n 직접 가보는것이 내 평생의 꿈이었지"
 	},
 	{
 		"type": "Dialogue",
