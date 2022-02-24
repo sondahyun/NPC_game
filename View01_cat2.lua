@@ -18,8 +18,8 @@ function scene:create( event )
 		local background = display.newImageRect("Content/PNG/cat/배경.png", display.contentWidth, display.contentHeight)
 		background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-		--local howtoplay=display.newText("제한시간안에 클릭하여 물고기를 잡으세요!",display.contentCenterX,display.contentWidth*0.1)
-		--howtoplay.size=50
+		local howtoplay=display.newText("제한시간안에 클릭하여 물고기를 잡으세요!",display.contentCenterX,display.contentWidth*0.2)
+		howtoplay.size=50
 
 		local fish = { }
 		local fishGroup=display.newGroup() 
@@ -46,7 +46,7 @@ function scene:create( event )
 			--레이어 정리--
 		sceneGroup:insert(background)
 		sceneGroup:insert(fishGroup)
-	--	sceneGroup:insert(howtoplay)
+		sceneGroup:insert(howtoplay)
 		sceneGroup:insert(print)
 		sceneGroup:insert(showScore)
 		
