@@ -7,7 +7,7 @@
 	},
 	{
 		"type" : "Narration",
-		"content" : "코코는 꼬리를 엄청 흔들다가\n  엉덩이까지 씰룩거리며 주인을 반겼습니다."
+		"content" : "코코는 꼬리를 엄청 흔들다가\n 엉덩이까지 씰룩거리며 주인을 반겼습니다."
 	},
 	{
 		"type": "Dialogue",
@@ -17,17 +17,17 @@
 	},
 	{
 		"type" : "Narration",
-		"content" : "코코는 주인에게 달려가서 주인의\n  얼굴이 침 범벅이 될 때까지 핥았습니다."
+		"content" : "코코는 주인에게 달려가서 주인의\n얼굴이 침 범벅이 될 때까지 핥았습니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "까미",
 		"img" : "Content/PNG/script/고양이.png",
-		"content" : " 다들 원하는바를 이뤘는데\n  나만 못 이뤘네.. 너무 배고프다… "
+		"content" : " 다들 원하는바를 이뤘는데\n나만 못 이뤘네.. 너무 배고프다… "
 	},
 	{
 		"type" : "Narration",
-		"content" : "까미는 위쪽에서 이름을 부르는 소리가\n  들렸고 고개를 위로 들었습니다."
+		"content" : "까미는 위쪽에서 이름을 부르는 소리가\n들렸고 고개를 위로 들었습니다."
 	},
 	{
 		"type": "Dialogue",
@@ -43,7 +43,7 @@
 	},
 	{
 		"type" : "Narration",
-		"content" : "다시 앞을 보니 까미 앞에는 오늘 하룻동안 \n 봤던 동물들 모두가 다 모여있습니다."
+		"content" : "다시 앞을 보니 까미 앞에는 오늘 하룻동안 \n봤던 동물들 모두가 다 모여있습니다."
 	},
 	{
 		"type": "Dialogue",
@@ -53,7 +53,7 @@
 	},
 	{
 		"type" : "Narration",
-		"content" : "친구들은 웃으며 먹을 것을 \n 가져왔다고 입을 모아 말합니다."
+		"content" : "친구들은 웃으며 먹을 것을 \n가져왔다고 입을 모아 말합니다."
 	},
 	{
 		"type": "Dialogue",
@@ -69,13 +69,13 @@
 	},
 		{
 		"type" : "Narration",
-		"content" : "까미는 자신을 위해 모여준 \n 친구들에게 진심으로 감동받았습니다."
+		"content" : "까미는 자신을 위해 모여준 \n친구들에게 진심으로 감동받았습니다."
 	},
 	{
 		"type": "Dialogue",
 		"speaker" : "까미",
 		"img" : "Content/PNG/script/고양이.png",
-		"content" : "얘들아 고마워 너희 \n 덕분에 나 역시 소원을 이뤘네"
+		"content" : "얘들아 고마워 너희 \n덕분에 나 역시 소원을 이뤘네"
 	},
 	{
 		"type": "Dialogue",
