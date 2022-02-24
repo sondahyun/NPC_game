@@ -29,7 +29,7 @@ function scene:create( event )
 
 		if flag==0 then
             composer.removeScene("View03_cat")
-			composer.gotoScene("View01_cat")
+			composer.gotoScene("View01_cat2")
 		end
 	end
 
