@@ -38,7 +38,7 @@ function scene:create( event )
 	local function gomap(event) -- 게임 pass 후 넘어감
 		if event.phase == "began" then--view20ring
 				composer.removeScene("view07_chick_game_over")
-				composer.gotoScene( "story04" )
+				composer.gotoScene( "story09" )
 		end
 	end
 

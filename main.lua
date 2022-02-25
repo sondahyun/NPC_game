@@ -11,7 +11,6 @@ local widget = require "widget"
 local composer = require "composer"
 local physics = require "physics"
 physics.start()
-physics.setDrawMode("hybrid")
 -- event listeners for tab buttons:
 local function onFirstView( event )
 	composer.gotoScene( "view04_chick_game_start" )
