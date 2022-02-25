@@ -9,9 +9,6 @@ local scene = composer.newScene()
 
 function scene:create( event )
 	local sceneGroup = self.view
-	
-	local ending = display.newText(" ",display.contentCenterX,display.contentCenterY)
-	ending.size = 250
 
 	local result2 = composer.getVariable("complete")
 
@@ -28,8 +25,9 @@ function scene:create( event )
 		sceneGroup:insert(background1)
 
 		local function gomap(event) -- 게임 pass 후 넘어감
-				composer.removeScene("View02_cat")
-				composer.gotoScene( "story04" )
+			audio.stop(1)
+			composer.removeScene("View02_cat")
+			composer.gotoScene( "story03" )
 		end
 
 		local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
@@ -38,7 +36,7 @@ function scene:create( event )
 		backtomap:addEventListener("touch",gomap)
 	else
 		composer.removeScene("View02_cat")
-		composer.gotoScene("View03_cat")
+		--composer.gotoScene("View03_cat")
 	end
 end
 

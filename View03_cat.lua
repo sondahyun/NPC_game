@@ -54,7 +54,6 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
-		composer.removeScene("view07_chick_game_over")
 	end
 end
 

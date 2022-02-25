@@ -21,6 +21,9 @@ function scene:create( event )
 		local howtoplay=display.newText("제한시간안에 클릭하여 물고기를 잡으세요!",display.contentCenterX,display.contentWidth*0.2)
 		howtoplay.size=50
 
+
+		local pond = display.newCircle(display.contentWidth*0.5,display.contentHeight*0.7,400)
+
 		local fish = { }
 		local fishGroup=display.newGroup() 
 
@@ -30,7 +33,7 @@ function scene:create( event )
 			else
 				fish[i] = display.newImage(fishGroup,"Content/PNG/cat/물고기1.png")
 			end
-			fish[i].x,fish[i].y= background.x + math.random(-450, 400),background.y + math.random(100, 780)
+			fish[i].x,fish[i].y=pond.x+math.random(-200,200),pond.y+math.random(-200,200)
 		end
 
 		sceneGroup:insert(fishGroup)
@@ -42,14 +45,13 @@ function scene:create( event )
 		showScore:setFillColor(0)
 		showScore.size=70
 
-		
-			--레이어 정리--
+		--레이어 정리--
+		sceneGroup:insert(pond)
 		sceneGroup:insert(background)
 		sceneGroup:insert(fishGroup)
-		sceneGroup:insert(howtoplay)
 		sceneGroup:insert(print)
 		sceneGroup:insert(showScore)
-		
+		sceneGroup:insert(howtoplay)
 
 		fishGroup:toFront()
 
@@ -66,15 +68,11 @@ function scene:create( event )
 				composer.gotoScene("View02_cat")
 			end
 		end
-		
+
 		for i=1,12 do
 			fish[i]:addEventListener("tap",catch)
 		end
 		
-		--local print2= display.newImageRect("Content/PNG/cat/옵션.png",150*0.6,200*0.6)
-		--print2.x,print2.y=display.contentWidth*0.91,display.contentHeight*0.05
-
-		--sceneGroup:insert(print2)
 		-- 시간 제한 --
 
 		local result = composer.getVariable("flag")
@@ -87,6 +85,7 @@ function scene:create( event )
 		local showLimit = display.newText("",display.contentWidth*0.15,display.contentHeight*0.05)
 		showLimit:setFillColor(0)
 		showLimit.size = 70
+		sceneGroup:insert(print3)
 		sceneGroup:insert(print3)
 		showScore:toFront()
 		sceneGroup:insert(showLimit)
@@ -109,7 +108,6 @@ function scene:create( event )
 	if ff==0 then
 		makefish()
 	end
-	
 	
 
 	
