@@ -11,6 +11,11 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
+	local background = display.newImageRect("Content/PNG/dog/배경.png",display.contentWidth, display.contentHeight) ---배경
+	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background)
+	
+
 	local background1 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	
 	background1:setFillColor(0)
@@ -19,18 +24,19 @@ function scene:create( event )
 
 	local backgame =display.newImageRect("Content/PNG/fail.png",display.contentWidth/1.1,display.contentHeight/2.5) --실패할 경우
 	backgame.x, backgame.y = display.contentWidth/2, display.contentHeight/2
-	backgame.alpha = 0
+	backgame.alpha = 1
 	sceneGroup:insert(backgame)
 
 	local function retrybtntap(event)
+		composer.removeScene("view03_dog_fail")
 		composer.gotoScene("view02_dog")
 	end
 	
-	background:addEventListener("tap",retrybtntap)
+	backgame:addEventListener("tap",retrybtntap)
 	
 
-	sceneGroup:insert(background1)
-	sceneGroup:insert(fail)
+	--sceneGroup:insert(background1)
+	--sceneGroup:insert(fail)
 end
 
 function scene:hide( event )

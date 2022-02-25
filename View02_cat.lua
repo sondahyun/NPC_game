@@ -16,7 +16,23 @@ function scene:create( event )
 	local result2 = composer.getVariable("complete")
 
 	if result2 then
-		ending.text="CLEAR!!"
+		local sceneGroup = self.view
+		local background = display.newImageRect("Content/PNG/cat/배경.png",display.contentWidth, display.contentHeight) ---배경
+		background.x,background.y = display.contentWidth/2,display.contentHeight/2
+		sceneGroup:insert(background)
+		sceneGroup:insert(background)
+		local background1 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
+		background1:setFillColor(0)
+		transition.to(background1,{alpha=0.5,time=1000}) -- 배경 어둡게
+		sceneGroup:insert(background1)
+		local function gomap(event) -- 게임 pass 후 넘어감
+				composer.removeScene("View02_cat")
+				composer.gotoScene( "story04" )
+		end
+		local backtomap =display.newImageRect("Content/PNG/script/stage/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
+		backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
+		sceneGroup:insert(backtomap)
+		backtomap:addEventListener("touch",gomap)
 	else
 		composer.removeScene("View02_cat")
 		composer.gotoScene("View03_cat")

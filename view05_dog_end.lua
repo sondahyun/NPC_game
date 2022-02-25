@@ -11,6 +11,10 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
+	local background = display.newImageRect("Content/PNG/dog/배경.png",display.contentWidth, display.contentHeight) ---배경
+	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background)
+
 	local background1 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	
 	background1:setFillColor(0)
@@ -19,16 +23,23 @@ function scene:create( event )
 
 	local result = composer.getVariable("complete")
 
-	if result then 
+	local function gomap(event) -- 게임 pass 후 넘어감
+		if event.phase == "began" then--view20ring
+				composer.removeScene("view05_dog_end")
+				composer.gotoScene( "story04" )
+		end
+	end
+
+	if result == 1 then 
 		local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
 		backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
 		sceneGroup:insert(backtomap)
 		backtomap:addEventListener("touch",gomap)
 	else
-		composer.gotoScene("view03_dog_ fail")
+		composer.gotoScene("view03_dog_fail")
 	end
-	sceneGroup:insert(background1)
-	sceneGroup:insert(backtomap)
+	--sceneGroup:insert(background1)
+	--sceneGroup:insert(backtomap)
 end
 
 function scene:hide( event )

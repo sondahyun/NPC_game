@@ -60,7 +60,7 @@ function scene:create( event )
 		if(limit <= 0) then
 			timer.cancel( timer1 )
 			composer.removeScene("view02_dog")
-			composer.gotoScene("view03_dog _fail")
+			composer.gotoScene("view03_dog_fail")
 		end
 	end
 
