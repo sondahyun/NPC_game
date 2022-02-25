@@ -3,10 +3,12 @@
 -- View01_bear.lua
 --
 -----------------------------------------------------------------------------------------
-
+local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local physics = require("physics")
 local scene = composer.newScene()
+local json = require( "json" ) 
+
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -34,6 +36,48 @@ function scene:create( event )
 	sceneGroup:insert(background)
 	sceneGroup:insert(cat)
 	sceneGroup:insert(arrowright)
+	
+
+	-- 엔딩 제이쓴 파일 생성
+    local path = system.pathForFile( "ending.json", system.DocumentsDirectory)
+ 
+    local file, errorString = io.open( path, "r" )
+    if not file then
+        print("make an ending file")
+        --엔딩관련 데이터 파일 생성
+        local ending = {
+            bgMusic = "음악/음악샘플.mp3",
+            logValue = "0.5",
+            slider = 50
+        }
+        loadsave.saveTable( ending, "ending.json" )
+    end
+
+
+
+	loadedEnding = loadsave.loadTable( "ending.json" )
+
+
+	--샘플 볼륨 이미지
+    local volumeButton = display.newImage("Content/PNG/설정/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", options )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+    local home = audio.loadStream( "음악/음악샘플.mp3" )
+    audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue
+    audio.play(home)
+
+
+
+
+ 
+
 end
 
 function scene:show( event )

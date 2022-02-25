@@ -5,8 +5,11 @@
 -----------------------------------------------------------------------------------------
 
 --test2
+local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local scene = composer.newScene()
+local json = require( "json" ) 
+
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -16,6 +19,8 @@ function scene:create( event )
 	
 	
 	sceneGroup:insert( background )
+
+	loadedEnding = loadsave.loadTable( "ending.json" )
 	
 	--샘플 볼륨 이미지
     local volumeButton = display.newImage("Content/PNG/설정/설정.png")
@@ -29,7 +34,7 @@ function scene:create( event )
     volumeButton:addEventListener("tap",setVolume)
 
     local home = audio.loadStream( "음악/음악샘플.mp3" )
-    audio.setVolume( 0.5 )
+    audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue
     audio.play(home)
 
 end

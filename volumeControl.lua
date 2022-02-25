@@ -8,8 +8,8 @@ function scene:create( event )
     local widget = require ("widget")
 
     --로드
-    local loadedEndings = loadsave.loadTable( "endings.json" )
-    music = loadedEndings.bgMusic
+    local loadedEnding = loadsave.loadTable( "ending.json" )
+    music = loadedEnding.bgMusic
 
     -- 배경 어둡게
     local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
@@ -33,7 +33,7 @@ function scene:create( event )
     -- 볼륨리스너  
     local function bgSliderListener( event )
         local sliderValue = event.value
-        loadedEndings.slider = sliderValue
+        loadedEnding.slider = sliderValue
         local logValue
         if sliderValue == nil then sliderValue = 0 end
         if (sliderValue > 0) then
@@ -42,13 +42,13 @@ function scene:create( event )
             logValue = 0.0
         end
         settings["bgvolume"] = logValue
-        loadedEndings.logValue = logValue
-        loadsave.saveTable(loadedEndings,"endings.json")
+        loadedEnding.logValue = logValue
+        loadsave.saveTable(loadedEnding,"ending.json")
         audio.setVolume( settings["bgvolume"]  )
     end
 
     local background_image = display.newImage("Content/PNG/설정/소리조절칸.png")
-    background_image.x, background_image.y = display.contentWidth*0.375,display.contentHeight*0.55
+    background_image.x, background_image.y = display.contentWidth*0.29,display.contentHeight*0.53
     sceneGroup:insert(background_image)
 
     local options = {
@@ -76,9 +76,9 @@ function scene:create( event )
         handleFrame = 5,
         handleWidth = 41,
         handleHeight = 41,
-        top = 380,    x = display.contentCenterX*0.75,      
-        width=380,  y=display.contentCenterY*1.1,      
-        value=loadedEndings.slider,
+        top = 380,    x = display.contentCenterX*0.58,      
+        width=380,  y=display.contentCenterY*1.06,      
+        value=loadedEnding.slider,
         listener = bgSliderListener
     }
     sceneGroup:insert( bgSlider )
@@ -91,8 +91,8 @@ function scene:create( event )
     end
 
     -- exit 버튼 생성 및 버튼에 이벤트 리스너 추가
-    local exit = display.newImage("Content/PNG/설정/x버튼.png")
-    exit.x, exit.y = display.contentWidth*0.745, display.contentHeight*0.35
+    local exit = display.newImageRect("Content/PNG/설정/x버튼.png", 80, 80)
+    exit.x, exit.y = display.contentWidth*0.899, display.contentHeight*0.439
     sceneGroup:insert(exit)
     exit:addEventListener("touch",goback)
 end
