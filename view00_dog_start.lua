@@ -14,7 +14,7 @@ audio.play( explosionSound )
 function scene:create( event )
 	local sceneGroup = self.view
 	-------------------- 배경구성
-	local background = display.newImage( "Content/PNG/미니게임타이틀_강아지.png")
+	local background = display.newImage( "Content/PNG/타이틀/미니게임타이틀_강아지.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 	
 	------------------

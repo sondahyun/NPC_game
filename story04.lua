@@ -128,8 +128,7 @@ function scene:create( event )
 		nextScript()
 	end
 
-
-	local function stagetap(event)
+	local function gametap(event)
 		audio.pause( home )
 		composer.removeScene("story04")
 		composer.gotoScene("View01_bear")
@@ -137,7 +136,7 @@ function scene:create( event )
 
 
 	section:addEventListener("tap",tap)
-	ending:addEventListener("tap", stagetap)
+	ending:addEventListener("tap", gametap)
 
 
 	-- 레이어 정리

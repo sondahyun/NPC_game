@@ -46,6 +46,7 @@ function scene:create( event )
 	end
 
 	local function storymove()
+		composer.removeScene("stage03")
 		composer.gotoScene("story04")
 	end
 

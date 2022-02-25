@@ -130,7 +130,7 @@ function scene:create( event )
 	local function stagetap(event)
 		audio.pause( home )
 		composer.removeScene("stage10")
-		composer.gotoScene("view01_dog")
+		composer.gotoScene("view00_dog_start")
 	end
 
 	section:addEventListener("tap",tap)
