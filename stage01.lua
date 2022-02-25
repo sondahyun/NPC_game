@@ -60,7 +60,7 @@ function scene:create( event )
         print("make an ending file")
         --엔딩관련 데이터 파일 생성
         local ending = {
-            bgMusic = "음악/음악샘플.mp3",
+            bgMusic = "Content/PNG/script/지도.mp3",
             logValue = "0.5",
             slider = 50
         }
