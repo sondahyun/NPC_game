@@ -129,6 +129,7 @@ function scene:create( event )
 	end
 
 	local function stagetap(event)
+		audio.pause( home )
 		composer.setVariable("fishcheck", 1)
 		composer.removeScene("stage02")
 		composer.gotoScene("stage02")

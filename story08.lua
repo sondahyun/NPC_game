@@ -127,7 +127,7 @@ function scene:create( event )
 	end
 
 	local function stagetap(event)
-		composer.setVariable("dogcheck", 1)
+		audio.pause( home )
 		composer.removeScene("story08")
 		composer.gotoScene("view04_chick_game_start")
 	end

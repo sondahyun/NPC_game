@@ -129,9 +129,10 @@ function scene:create( event )
 	end
 
 	local function stagetap(event)
+		audio.pause( home )
 		composer.setVariable("chickcheck", 1)
-		composer.removeScene("story07")
-		composer.gotoScene("story07")
+		composer.removeScene("story02")
+		composer.gotoScene("View01_cat2")
 	end
 
 	section:addEventListener("tap",tap)

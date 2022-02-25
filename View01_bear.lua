@@ -57,29 +57,29 @@ function scene:create( event )
 		i = i+1
 	end
 
-	
-	local function scriptremove(event)
-		section.alpha=0
-		script.alpha=0
-		timer1=timer.performWithDelay(1000, spawn, 0)
-	end	
-
 	local function bearmove(event)
 		if(event.phase == "ended") then
-			if bear.x>=60 and bear.x<=975 then
+			if bear.x>=60 and bear.x<=960 then
 				if event.x < bear.x then
-					bear.x=bear.x-25
+					bear.x=bear.x-40
 				elseif event.x>bear.x then
-					bear.x = bear.x+25	
+					bear.x = bear.x+40	
 				end
 			elseif bear.x<60 then
 				bear.x = 60
-			elseif bear.x >975 then
-				bear.x = 975
+			elseif bear.x >960 then
+				bear.x = 960
 			end
 
 		end
 	end
+
+	local function scriptremove(event)
+		section.alpha=0
+		script.alpha=0
+		timer1=timer.performWithDelay(1000, spawn, 0)
+		Runtime:addEventListener( "touch", bearmove)
+	end	
 
 
 	local function pagemove()
@@ -122,7 +122,6 @@ function scene:create( event )
 	end
 
 	section:addEventListener("tap", scriptremove)
-	Runtime:addEventListener( "touch", bearmove)
 	bear:addEventListener("collision", onCollision)
 	floor:addEventListener("collision", onCollision2)
 	

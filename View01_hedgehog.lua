@@ -11,12 +11,17 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
+	local gametitle = display.newImageRect("Content/PNG/고슴도치/미니게임타이틀_고슴도치.png", display.contentWidth, display.contentHeight)
+	gametitle.x, gametitle.y = display.contentWidth/2, display.contentHeight/2
+
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.8, display.contentWidth, display.contentHeight*0.3)
 	section:setFillColor(0.35, 0.35, 0.35, 0.35)
+	section.alpha=0
 
 	local script = display.newText("How to play:\n 숨어있는 고슴도치를 찾아보세요\n 6번 찾을 시 게임 클리어 입니다.", section.x+30, section.y-100, native.systemFontBold)
 	script.size = 45
 	script:setFillColor(1)
+	script.alpha=0
 	
 	local background = display.newImageRect("Content/PNG/고슴도치/배경.png", display.contentWidth, display.contentHeight)
 	background.x, background.y=display.contentWidth/2, display.contentHeight/2
@@ -29,7 +34,7 @@ function scene:create( event )
 	local cat = display.newImage("Content/PNG/고슴도치/고양이.png")
 	cat.x, cat.y = 263, 1179
 
-	local limit = 10
+	local limit = 15
 	local showLimit = display.newText(limit, display.contentWidth*0.9, display.contentHeight*0.05)
 	showLimit:setFillColor(0)
 	showLimit.size = 60
@@ -85,18 +90,24 @@ function scene:create( event )
 		end
 	end
 
-
 	local function scriptremove(event)
 		timer1=timer.performWithDelay(1000, time, 0)
 		section.alpha=0
 		script.alpha=0
+		hedGroup:addEventListener("tap", catch)
+	end	
+
+	local function titleremove(event)
+		gametitle.alpha=0
+		section.alpha=1
+		script.alpha=1
+		section:addEventListener("tap", scriptremove)
 	end	
 
 	spawn()
 	
-	hedGroup:addEventListener("tap", catch)
-	section:addEventListener("tap", scriptremove)
-	
+	gametitle:addEventListener("tap", titleremove)
+
 	sceneGroup:insert(background)
 	sceneGroup:insert(showScore)
 	sceneGroup:insert(showLimit)

@@ -128,6 +128,11 @@ function scene:create( event )
 		nextScript()
 	end
 
+	local function tap2( event )
+		audio.pause(home)
+		composer.gotoScene("View01_main")
+	end
+
 	section:addEventListener("tap",tap)
 
 	-- 레이어 정리
