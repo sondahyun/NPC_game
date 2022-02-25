@@ -128,24 +128,15 @@ function scene:create( event )
 		nextScript()
 	end
 
-<<<<<<< HEAD
 	local function gametap(event)
 		audio.pause( explosionSound )
 		composer.removeScene("story02")
 		composer.gotoScene("View01_cat_start")
-=======
- 
-	local function stagetap(event)
-		audio.pause( home )
-		composer.setVariable("chickcheck", 1)
- 		composer.removeScene("story02")
-		composer.gotoScene("View01_cat2")
->>>>>>> 63fab7325181a2840080f13c821ad580e86989f6
 	end
 
  
 	section:addEventListener("tap",tap)
-	ending:addEventListener("tap", stagetap)
+	ending:addEventListener("tap", gametap)
  
 	-- 레이어 정리
 	sceneGroup:insert(background)
