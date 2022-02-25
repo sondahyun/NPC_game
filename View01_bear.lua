@@ -7,6 +7,8 @@
 local composer = require( "composer" )
 local physics = require("physics")
 local scene = composer.newScene()
+local explosionSound = audio.loadSound( "Content/PNG/script/A happy morning.mp3" )
+audio.play( explosionSound )
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -119,12 +121,14 @@ function scene:create( event )
 
 			if score<0 then			
 				pagemove()
+				audio.pause(explosionSound)
 				composer.removeScene("View01_bear")
 				composer.setVariable("score", -1)
 				composer.gotoScene("View01_bear_game_over")
 
 			elseif score == 5 then
 				pagemove()
+				audio.pause(explosionSound)
 				composer.removeScene("View01_bear")
 				composer.setVariable("score", 5)
 				composer.gotoScene( "View01_bear_game_over" )

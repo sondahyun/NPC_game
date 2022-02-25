@@ -7,6 +7,8 @@
 local composer = require( "composer" )
 local physics = require("physics")
 local scene = composer.newScene()
+local explosionSound = audio.loadSound( "Content/PNG/script/Tongtong.mp3" )
+audio.play( explosionSound )
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -37,7 +39,7 @@ function scene:create( event )
 	local cat = display.newImage("Content/PNG/고슴도치/고양이.png")
 	cat.x, cat.y = 263, 1179
 
-	local limit = 15
+	local limit = 20
 	local showLimit = display.newText(limit, display.contentWidth*0.85, display.contentHeight*0.16)
 	showLimit:setFillColor(0)
 	showLimit.size = 60
@@ -80,6 +82,7 @@ function scene:create( event )
 		display.remove(hed[count])
 		if count == 6 then
 			timer.cancel(timer1)
+			audio.pause(explosionSound)
 			composer.removeScene("View01_hedgehog")
 			composer.setVariable("score", 6)
 			composer.gotoScene("View01_hedgehog_game_over")
@@ -93,6 +96,7 @@ function scene:create( event )
 		showLimit.text = limit
 		if(limit <= 0) then
 			timer.cancel(timer1)
+			audio.pause(explosionSound)
 			composer.removeScene("View01_hedgehog")
 			composer.setVariable("score", -1)
 			composer.gotoScene("View01_hedgehog_game_over")
