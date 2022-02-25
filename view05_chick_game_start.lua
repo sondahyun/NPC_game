@@ -8,26 +8,22 @@ function scene:create( event )
 	local function catch( event )
 		--if(event.phase == "began") then
 			composer.removeScene("view05_chick_game_start")
-			composer.gotoScene("view06_chick_game_start")
+			composer.gotoScene("view06_chick_game")
 		--end
 	end
 
 
 	
 
-    local background = display.newImage( "배경.png", display.contentWidth, display.contentHeight)
+    local background = display.newImage( "Content/PNG/chick/배경.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth/2
     background.y = display.contentHeight/2
     sceneGroup:insert(background)
-    --[[local ready = display.newImage( "이미지/미니게임/미니게임_보라마을/user2.png", display.contentWidth, display.contentHeight)
-    ready.x = display.contentWidth/2 - 310
-    ready.y = display.contentHeight/2 + 160
-    ready.rotation = 65
-    sceneGroup:insert(ready)]]
-    local daepo = display.newImage( "대기.png", display.contentWidth, display.contentHeight)
-    daepo.x = display.contentWidth/5
-    daepo.y = display.contentHeight/1.2
-    sceneGroup:insert(daepo)
+  
+    local chick = display.newImage( "Content/PNG/chick/병아리.png", display.contentWidth/2, display.contentHeight/2)
+    chick.x = display.contentWidth/5
+    chick.y = display.contentHeight/1.1
+    sceneGroup:insert(chick)
 
     print("touch")
     background:addEventListener("touch", catch)
@@ -58,7 +54,7 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
     elseif phase == "did" then
-        composer.removeScene("view18ring")
+        composer.removeScene("view05_chick_game_start")
 		-- Called when the scene is now off screen
 	end
 end
