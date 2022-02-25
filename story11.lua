@@ -100,8 +100,14 @@ function scene:create( event )
 		nextScript()
 	end
 
-	background:addEventListener("tap",tap)
+	local function stagetap(event)
+		audio.pause( explosionSound )
+		composer.removeScene("story11")
+		composer.gotoScene("View01_main")
+	end
 
+	background:addEventListener("tap",tap)
+	ending:addEventListener("tap", stagetap)
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(section)

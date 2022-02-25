@@ -101,6 +101,7 @@ function scene:create( event )
 	end
 
 	local function stagetap(event)
+		audio.pause( explosionSound )
 		composer.setVariable("dogcheck", 1)
 		composer.removeScene("stage05")
 		composer.gotoScene("stage05")
