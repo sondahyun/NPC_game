@@ -13,19 +13,13 @@ function scene:create( event )
 	end
 
 
-	
-
-    local background = display.newImage( "Content/PNG/chick/배경.png", display.contentWidth, display.contentHeight)
+    local background = display.newImage( "Content/PNG/타이틀/미니게임타이틀_병아리.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth/2
     background.y = display.contentHeight/2
     sceneGroup:insert(background)
   
-    local chick = display.newImage( "Content/PNG/chick/병아리.png", display.contentWidth/2, display.contentHeight/2)
-    chick.x = display.contentWidth/5
-    chick.y = display.contentHeight/1.1
-    sceneGroup:insert(chick)
 
-    print("touch")
+
     background:addEventListener("touch", catch)
 
 end
