@@ -6,14 +6,14 @@ local scene = composer.newScene()
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local background = display.newImageRect("Content/PNG/chick/배경.png",display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("Content/PNG/chick/배경.png",display.contentWidth, display.contentHeight) ---배경
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 
 	local background1 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	
 	background1:setFillColor(0)
-	transition.to(background1,{alpha=0.5,time=1000})
+	transition.to(background1,{alpha=0.5,time=1000}) -- 배경 어둡게
 	sceneGroup:insert(background1)
 
 	--[[local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/3.6294896, display.contentHeight/2.83122739)
@@ -22,43 +22,42 @@ function scene:create( event )
 	transition.to(board,{alpha=1,time=1000})
 	sceneGroup:insert(board)]]
 
-	local score3 = composer.getVariable("score")
+	local score3 = composer.getVariable("score") ---점수 필요 없을경우 안써도 됌
 	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/2+32) 
 	showScore1:setFillColor(1,0,0)
 	showScore1.size = 60
 	sceneGroup:insert(showScore1)
 
-	local function backtogame(event)
+	local function backtogame(event) --실패할 경우 다시 게임으로 돌아가기
 		if event.phase == "began" then 
 				composer.removeScene("view07_chick_game_over")
 				composer.gotoScene("view04_chick_game_start")
 		end
 	end
 
-	local function gomap(event)
+	local function gomap(event) -- 게임 pass 후 넘어감
 		if event.phase == "began" then--view20ring
 				composer.removeScene("view07_chick_game_over")
-				composer.gotoScene( "view1" )
+				composer.gotoScene( "story04" )
 		end
 	end
 
-	local backtomap =display.newImageRect("Content/PNG/chick/중경.png",display.contentWidth/6.112,display.contentHeight/17.3050)
-	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/1.65466
+	local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
+	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(backtomap)
 	backtomap:addEventListener("touch",gomap)
 
-	local returnto = display.newText("다시하기",display.contentWidth/2, display.contentHeight/2)
-	returnto.size = 100
-	returnto.alpha = 0
-	returnto.x = display.contentWidth/2
-	returnto.y = display.contentHeight/2 + 200
-	sceneGroup:insert(returnto)
+	local backgame =display.newImageRect("Content/PNG/fail.png",display.contentWidth/1.1,display.contentHeight/2.5) --실패할 경우
+	backgame.x, backgame.y = display.contentWidth/2, display.contentHeight/2
+	backgame.alpha = 0
+	sceneGroup:insert(backgame)
 
 	if score3 < 15 then
-		returnto.alpha = 1
+		backgame.alpha = 1
 		backtomap.alpha = 0
-		returnto:addEventListener("touch",backtogame)
+		backgame:addEventListener("touch",backtogame)
 	end
+	sceneGroup:insert(showScore1)
 
 end
 
