@@ -27,9 +27,12 @@ function scene:create( event )
 	background.x, background.y=display.contentWidth/2, display.contentHeight/2
 
 	local score = 0
-	local showScore = display.newText(score, display.contentWidth*0.9, display.contentHeight*0.1)
+	local showScore = display.newText(score, display.contentWidth*0.81, display.contentHeight*0.11)
 	showScore:setFillColor(0)
 	showScore.size = 50
+
+	local scorebackground = display.newImageRect("Content/PNG/스코어.png", 300, 150)
+	scorebackground.x, scorebackground.y = display.contentWidth*0.9-100, display.contentHeight*0.1
 
 	local floor = display.newRect(display.contentWidth/2, display.contentHeight*0.9, display.contentWidth, display.contentHeight*0.2)
 	floor:setFillColor(0)
@@ -141,7 +144,9 @@ function scene:create( event )
 	
 
 	sceneGroup:insert(background)
+	sceneGroup:insert(scorebackground)
 	sceneGroup:insert(showScore)
+	
 	sceneGroup:insert(floor)
 	sceneGroup:insert(bear)
 	sceneGroup:insert(section)

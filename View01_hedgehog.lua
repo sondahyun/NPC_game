@@ -27,17 +27,23 @@ function scene:create( event )
 	background.x, background.y=display.contentWidth/2, display.contentHeight/2
 
 	local count=0
-	local showScore = display.newText(count, display.contentWidth*0.9, display.contentHeight*0.1)
+	local showScore = display.newText(count, display.contentWidth*0.85, display.contentHeight*0.06)
 	showScore:setFillColor(0)
 	showScore.size = 50
+
+	local countbackground = display.newImageRect("Content/PNG/스코어.png", 300, 150)
+	countbackground.x, countbackground.y = display.contentWidth*0.85, display.contentHeight*0.05
 	
 	local cat = display.newImage("Content/PNG/고슴도치/고양이.png")
 	cat.x, cat.y = 263, 1179
 
 	local limit = 15
-	local showLimit = display.newText(limit, display.contentWidth*0.9, display.contentHeight*0.05)
+	local showLimit = display.newText(limit, display.contentWidth*0.85, display.contentHeight*0.16)
 	showLimit:setFillColor(0)
 	showLimit.size = 60
+
+	local limitbackground = display.newImageRect("Content/PNG/시간.png", 200, 150)
+	limitbackground.x, limitbackground.y = display.contentWidth*0.85, display.contentHeight*0.15
 
 	local hedgehog = {"고슴도치1", "고슴도치2", "고슴도치3", "고슴도치4", "고슴도치5", "고슴도치6"}
 	local hedx={991.5, 611, 1018, 660.5, 165.5, 118.5}
@@ -112,7 +118,9 @@ function scene:create( event )
 	gametitle:addEventListener("tap", titleremove)
 
 	sceneGroup:insert(background)
+	sceneGroup:insert(countbackground)
 	sceneGroup:insert(showScore)
+	sceneGroup:insert(limitbackground)
 	sceneGroup:insert(showLimit)
 	sceneGroup:insert(cat)
 	sceneGroup:insert(hedGroup)
