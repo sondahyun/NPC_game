@@ -22,16 +22,16 @@ function scene:create( event )
 	sceneGroup:insert(background)
 	sceneGroup:insert(button1)
 
-	--[[local function tap(event)
+	local function tap(event)
 		flag=0
 
 		if flag==0 then
-            composer.removeScene("view1")
-			composer.gotoScene("view2")
+            composer.removeScene("View01_main")
+			composer.gotoScene("story01")
 		end
 	end
 
-	button1:addEventListener("tap",tap)]]--
+	button1:addEventListener("tap",tap)
 
 end
 

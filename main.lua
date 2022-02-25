@@ -15,7 +15,6 @@ physics.start()
 local function onFirstView( event )
 
 	composer.gotoScene( "View01_main" )
-	composer.gotoScene( "story06" )
 
 end
 
