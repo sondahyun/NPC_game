@@ -27,13 +27,7 @@ function scene:create( event )
 	showScore.size = 50
 	
 	local cat = display.newImageRect("Content/PNG/고슴도치/고양이.png", 400, 800)
-	cat.x, cat.y = display.contentWidth*0.2, display.contentHeight*0.6
-	
-	local box = display.newImageRect("Content/PNG/고슴도치/상자.png", 200, 350)
-	box.x, box.y = display.contentWidth*0.9, display.contentHeight*0.5
-
-	local box2 = display.newImageRect("Content/PNG/고슴도치/상자뚜껑열림.png", 200, 350)
-	box2.x, box2.y = display.contentWidth*0.5, display.contentHeight*0.35
+	cat.x, cat.y = 263, 1179
 
 	local limit = 10
 	local showLimit = display.newText(limit, display.contentWidth*0.9, display.contentHeight*0.05)
@@ -41,8 +35,8 @@ function scene:create( event )
 	showLimit.size = 60
 
 	local hedgehog = {"고슴도치1", "고슴도치2", "고슴도치3", "고슴도치4", "고슴도치5", "고슴도치6"}
-	local hedx={0.9, 0.5, 0.9, 0.6, 0.2, 0.1}
-	local hedy={0.45, 0.33, 0.9, 0.45, 0.35, 0.1}
+	local hedx={991.5, 611, 1018, 660.5, 165.5, 118.5}
+	local hedy={879.5, 525, 1651, 848, 732.5, 135.5}
 	
 	local hed= { }	
 	local hedIdxs = { }
@@ -61,9 +55,9 @@ function scene:create( event )
 		end
 		
 		local hedName = hedgehog[hedIdx]
-		hed[i] = display.newImageRect(hedGroup,"Content/PNG/고슴도치/" .. hedName .. ".png", 100, 200)
-		hed[i].x = display.contentWidth*hedx[hedIdx]
-		hed[i].y = display.contentHeight*hedy[hedIdx]
+		hed[i] = display.newImage(hedGroup,"Content/PNG/고슴도치/" .. hedName .. ".png")
+		hed[i].x = hedx[hedIdx]
+		hed[i].y = hedy[hedIdx]
 		hed[i].name='hed'
 
 		i = i+1
@@ -108,8 +102,6 @@ function scene:create( event )
 	sceneGroup:insert(showLimit)
 	sceneGroup:insert(cat)
 	sceneGroup:insert(hedGroup)
-	sceneGroup:insert(box)
-	sceneGroup:insert(box2)
 	sceneGroup:insert(section)
 	sceneGroup:insert(script)
 
