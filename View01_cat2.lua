@@ -71,10 +71,10 @@ function scene:create( event )
 			fish[i]:addEventListener("tap",catch)
 		end
 		
-		local print2= display.newImageRect("Content/PNG/cat/옵션.png",150*0.6,200*0.6)
-		print2.x,print2.y=display.contentWidth*0.91,display.contentHeight*0.05
+		--local print2= display.newImageRect("Content/PNG/cat/옵션.png",150*0.6,200*0.6)
+		--print2.x,print2.y=display.contentWidth*0.91,display.contentHeight*0.05
 
-		sceneGroup:insert(print2)
+		--sceneGroup:insert(print2)
 		-- 시간 제한 --
 
 		local result = composer.getVariable("flag")
