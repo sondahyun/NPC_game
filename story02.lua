@@ -133,7 +133,7 @@ function scene:create( event )
 		audio.pause( home )
 		composer.setVariable("chickcheck", 1)
  		composer.removeScene("story02")
-		composer.gotoScene("View01_cat2")
+		composer.gotoScene("View01_cat_start")
 	end
 
  
