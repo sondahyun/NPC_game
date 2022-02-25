@@ -128,24 +128,18 @@ function scene:create( event )
 		nextScript()
 	end
 
-<<<<<<< HEAD
-	local function gametap(event)
-		audio.pause( explosionSound )
-=======
+
 	local function stagetap(event)
 		audio.pause( home )
->>>>>>> parent of 1ce9e86 (Merge branch 'main' of https://github.com/sondahyun/NPC)
 		composer.removeScene("story04")
 		composer.gotoScene("View01_bear")
 	end
 
-<<<<<<< HEAD
-	background:addEventListener("tap",tap)
-	ending:addEventListener("tap", gametap)
-=======
+
 	section:addEventListener("tap",tap)
 	ending:addEventListener("tap", stagetap)
->>>>>>> parent of 1ce9e86 (Merge branch 'main' of https://github.com/sondahyun/NPC)
+
+
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(section)

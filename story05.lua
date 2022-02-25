@@ -129,11 +129,7 @@ function scene:create( event )
 	end
 
 	local function stagetap(event)
-<<<<<<< HEAD
-		audio.pause( explosionSound )
-=======
-		audio.pause( home )
->>>>>>> parent of 1ce9e86 (Merge branch 'main' of https://github.com/sondahyun/NPC)
+ 		audio.pause( home )
 		composer.setVariable("hedcheck", 1)
 		composer.removeScene("stage03")
 		composer.gotoScene("stage03")

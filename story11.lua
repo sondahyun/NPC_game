@@ -128,23 +128,16 @@ function scene:create( event )
 		nextScript()
 	end
 
-<<<<<<< HEAD
+ 
 	local function stagetap(event)
-		audio.pause( explosionSound )
+		audio.pause( home )
 		composer.removeScene("story11")
 		composer.gotoScene("View01_main")
 	end
-=======
-	local function tap2( event )
-		audio.pause(home)
-		composer.gotoScene("View01_main")
-	end
-
+ 
 	section:addEventListener("tap",tap)
->>>>>>> parent of 1ce9e86 (Merge branch 'main' of https://github.com/sondahyun/NPC)
-
-	background:addEventListener("tap",tap)
 	ending:addEventListener("tap", stagetap)
+	
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(section)

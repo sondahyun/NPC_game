@@ -126,13 +126,7 @@ function scene:create( event )
 		nextScript()
 	end
 
-<<<<<<< HEAD
-	local function gametap(event)
-		audio.pause( explosionSound )
-		composer.removeScene("story10")
-		composer.gotoScene("view00_dog_start")
-	end
-=======
+ 
 	local function stagetap(event)
 		audio.pause( home )
 		composer.removeScene("stage10")
@@ -141,10 +135,8 @@ function scene:create( event )
 
 	section:addEventListener("tap",tap)
 	ending:addEventListener("tap", stagetap)
->>>>>>> parent of 1ce9e86 (Merge branch 'main' of https://github.com/sondahyun/NPC)
-
-	background:addEventListener("tap",tap)
-	ending:addEventListener("tap", gametap)
+ 
+	 
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(section)
