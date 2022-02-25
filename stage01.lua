@@ -36,7 +36,7 @@ function scene:create( event )
 	sceneGroup:insert(background)
 	sceneGroup:insert(cat)
 	sceneGroup:insert(arrowright)
-	
+
 
 	-- 엔딩 제이쓴 파일 생성
     local path = system.pathForFile( "ending.json", system.DocumentsDirectory)
@@ -69,10 +69,10 @@ function scene:create( event )
     end
     volumeButton:addEventListener("tap",setVolume)
 
-    local home = audio.loadStream( "음악/음악샘플.mp3" )
+    --[[local home = audio.loadStream( "음악/음악샘플.mp3" )
     audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue
     audio.play(home)
-
+]]
 
 
 

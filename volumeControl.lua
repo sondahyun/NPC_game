@@ -48,7 +48,7 @@ function scene:create( event )
     end
 
     local background_image = display.newImage("Content/PNG/설정/소리조절칸.png")
-    background_image.x, background_image.y = display.contentWidth*0.29,display.contentHeight*0.53
+    background_image.x, background_image.y = display.contentWidth*0.29 + 200,display.contentHeight*0.53
     sceneGroup:insert(background_image)
 
     local options = {
@@ -76,7 +76,7 @@ function scene:create( event )
         handleFrame = 5,
         handleWidth = 41,
         handleHeight = 41,
-        top = 380,    x = display.contentCenterX*0.58,      
+        top = 380,    x = display.contentCenterX*0.58 + 200,      
         width=380,  y=display.contentCenterY*1.06,      
         value=loadedEnding.slider,
         listener = bgSliderListener

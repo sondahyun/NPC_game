@@ -7,9 +7,14 @@
 local composer = require( "composer" )
 local physics = require("physics")
 local scene = composer.newScene()
+local loadsave = require( "loadsave" )
+local json = require( "json" ) 
+
 
 function scene:create( event )
 	local sceneGroup = self.view
+	loadedEnding = loadsave.loadTable( "ending.json" )
+
 	
 	local background = display.newImageRect("Content/PNG/stage/스테이지2.png", display.contentWidth, display.contentHeight)
 	background.x, background.y=display.contentWidth/2, display.contentHeight/2
@@ -55,6 +60,29 @@ function scene:create( event )
 	sceneGroup:insert(background2)
 	sceneGroup:insert(arrowright)
 	sceneGroup:insert(arrowleft)
+
+
+	-----음악
+
+   --[[local dMusic = audio.loadStream( "음악/음악샘플.mp3" )
+    audio.setVolume( loadedEnding.logValue )
+    loadedEnding.bgMusic = "음악/음악샘플.mp3"]] 
+
+   --샘플 볼륨 이미지
+    local volumeButton = display.newImage("Content/PNG/설정/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", options )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+    --[[local home = audio.loadStream( "음악/음악샘플.mp3" )
+    audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue
+    audio.play(home)]]
+
 end
 
 function scene:show( event )
