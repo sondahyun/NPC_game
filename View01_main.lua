@@ -19,21 +19,9 @@ function scene:create( event )
 	local button1 = display.newImageRect("Content/PNG/mainPage/타이틀_시작버튼.png",150*5,200*0.8)
 	button1.x,button1.y=display.contentWidth*0.5,display.contentHeight*0.85
 
-
-<<<<<<< HEAD
-
 	local function tap(event)
 		audio.pause(explosionSound)
 		composer.gotoScene("stage01")
-=======
-	local function tap(event)
-		flag=0
-
-		if flag==0 then
-            composer.removeScene("View01_main")
-			composer.gotoScene("story01")
-		end
->>>>>>> b5a714e2934ede6d3789858a9caa998a2762a43c
 	end
 
 	button1:addEventListener("tap",tap)

@@ -11,7 +11,7 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
-	local gametitle = display.newImageRect("Content/PNG/고슴도치/미니게임타이틀_고슴도치.png", display.contentWidth, display.contentHeight)
+	local gametitle = display.newImageRect("Content/PNG/타이틀/미니게임타이틀_고슴도치.png", display.contentWidth, display.contentHeight)
 	gametitle.x, gametitle.y = display.contentWidth/2, display.contentHeight/2
 
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.8, display.contentWidth, display.contentHeight*0.3)
