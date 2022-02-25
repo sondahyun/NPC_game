@@ -22,11 +22,24 @@ function scene:create( event )
 	local arrowright = display.newImageRect("Content/PNG/stage/오른쪽넘기기.png",80, 80)
 	arrowright.x, arrowright.y = display.contentWidth*0.9, display.contentHeight/2
 
+	local current = display.newImageRect("Content/PNG/stage/현재위치.png", 150, 200)
+	current.x, current.y = cat.x+50, cat.y-300
+	current.alpha=0
+
+	local locate = 0
+	locate=composer.getVariable("locate")
+
+	if locate then
+		current.alpha=1
+	end
+
 	local function storymove()
 		composer.gotoScene("story01")
 	end
 
 	local function nextmove()
+		current.alpha=0
+		composer.removeScene("stage01")
 		composer.gotoScene("stage02")
 	end
 
@@ -34,6 +47,7 @@ function scene:create( event )
 	arrowright:addEventListener("tap", nextmove)
 
 	sceneGroup:insert(background)
+	sceneGroup:insert(current)
 	sceneGroup:insert(cat)
 	sceneGroup:insert(arrowright)
 

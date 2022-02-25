@@ -21,6 +21,8 @@ function scene:create( event )
 
 	local function tap(event)
 		audio.pause(explosionSound)
+		composer.setVariable("locate", 1)
+		composer.removeScene("View01_main")
 		composer.gotoScene("stage01")
 	end
 
