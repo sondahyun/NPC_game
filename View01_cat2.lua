@@ -98,6 +98,7 @@ function scene:create( event )
 			if limit == 0 then
 				composer.setVariable("complete",false)
 				makefish()
+				composer.removeScene("View01_cat2")
 				composer.gotoScene("View02_cat")
 			end
 		end
