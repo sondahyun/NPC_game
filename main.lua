@@ -14,7 +14,7 @@ physics.start()
 -- event listeners for tab buttons:
 local function onFirstView( event )
 
-	composer.gotoScene( "View01_cat_start" )
+	composer.gotoScene( "View01_main" )
 
 end
 
