@@ -25,11 +25,15 @@ parse()
 
 local composer = require( "composer" )
 local scene = composer.newScene()
-local explosionSound = audio.loadSound( "Content/PNG/script/Click Clock.mp3" )
-audio.play( explosionSound )
+--local explosionSound = audio.loadSound( "Content/PNG/script/Click Clock.mp3" )
+--audio.play( explosionSound )
+local loadsave = require( "loadsave" )
+local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
+	loadedEnding = loadsave.loadTable( "ending.json" )
+
 	
 	local background = display.newImageRect("Content/PNG/script/background/오후들판.png", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
@@ -37,7 +41,7 @@ function scene:create( event )
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.8, display.contentWidth, display.contentHeight*0.3)
 	section:setFillColor(0.8, 0.8, 0.8, 0.8)
 
-	local speakerImg = display.newRect(section.x - 300, section.y - 680, 800, 800)
+	local speakerImg = display.newRect(section.x - 360, section.y - 580, 600, 600)
 
 	local speaker = display.newText("더미 텍스트", section.x-400, section.y-75)
 	speaker.size = 80
@@ -51,6 +55,28 @@ function scene:create( event )
 	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
 	ending.size = 90
 	ending:setFillColor(1)
+
+	-----음악
+
+    
+
+    --샘플 볼륨 이미지
+    local volumeButton = display.newImage("Content/PNG/설정/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight - 1800
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", options )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+    local home = audio.loadStream( "Content/PNG/script/Click Clock.mp3" )
+    audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue
+    audio.play(home)
+
+
+    -------------
 
 	local index = 1
 		local function nextScript( ... )
@@ -100,15 +126,17 @@ function scene:create( event )
 		nextScript()
 	end
 
-	local function gametap(event)
-		audio.pause( explosionSound )
-		composer.removeScene("story08")
+ 
+	local function stagetap(event)
+		audio.pause( home )
+ 		composer.removeScene("story08")
 		composer.gotoScene("view04_chick_game_start")
 	end
 
-	background:addEventListener("tap",tap)
-	ending:addEventListener("tap", gametap)
-
+ 
+	section:addEventListener("tap",tap)
+	ending:addEventListener("tap", stagetap)
+ 
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(section)
@@ -116,6 +144,7 @@ function scene:create( event )
 	sceneGroup:insert(speaker)
 	sceneGroup:insert(script)
 	sceneGroup:insert(ending)
+	sceneGroup:insert(volumeButton)
 end
 
 function scene:show( event )

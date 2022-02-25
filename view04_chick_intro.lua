@@ -42,7 +42,7 @@ function scene:create( event )
 	local function catch( event )
 		--if(event.phase == "began") then
 			composer.removeScene("view04_chick_intro")
-			composer.gotoScene("view05_chick_game_start")
+			composer.gotoScene("view06_chick_game")
 		--end
 	end
 	------대사
@@ -60,7 +60,7 @@ function scene:create( event )
 				index = index + 1
 			end
 		else
-			background:addEventListener("touch", catch)
+			background:addEventListener("tap", catch)
 		end
 	end
 	nextScript()

@@ -6,19 +6,16 @@ function scene:create( event )
 	local sceneGroup = self.view
 
 	local function catch( event )
-		--if(event.phase == "began") then
-			composer.removeScene("view04_chick_game_start")
-			composer.gotoScene("view04_chick_intro")
-		--end
+		composer.removeScene("view04_chick_game_start")
+		composer.gotoScene("view04_chick_intro")
 	end
 
     local background = display.newImage( "Content/PNG/타이틀/미니게임타이틀_병아리.png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth/2
     background.y = display.contentHeight/2
-    sceneGroup:insert(background)
+  	sceneGroup:insert(background)
 
-    background:addEventListener("touch", catch)
-
+    background:addEventListener("tap", catch)
 end
 
 function scene:show( event )

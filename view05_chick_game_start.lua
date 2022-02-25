@@ -8,7 +8,7 @@ function scene:create( event )
 
 	local function catch( event )
 		--if(event.phase == "began") then
-			composer.removeScene("view045_chick_game_start")
+			composer.removeScene("view05_chick_game_start")
 			composer.gotoScene("view06_chick_game")
 		--end
 	end

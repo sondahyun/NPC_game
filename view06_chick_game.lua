@@ -38,11 +38,12 @@ function scene:create( event )
 --그룹
 	
     local walld = {}
+    local walldGroup = display.newGroup()
     for i=1,10 do
-        walld[i] = display.newImageRect("Content/PNG/chick/장애물.png", display.contentWidth/13, display.contentHeight/4)
+        walld[i] = display.newImageRect(walldGroup,"Content/PNG/chick/장애물.png", display.contentWidth/13, display.contentHeight/4)
         walld[i].x = display.contentWidth*i*0.5 + 400
         walld[i].y = value2[i]*1.7
-        sceneGroup:insert(walld[i])
+        sceneGroup:insert(walldGroup)
         physics.addBody(walld[i], "static")   
 	end
 
@@ -121,6 +122,7 @@ function scene:create( event )
 			Runtime:removeEventListener("touch",touchScreen)
 			Runtime:removeEventListener("enterFrame", user)
 
+			display.remove(walldGroup)
          	display.remove(user)
 
 			composer.setVariable("score", time)
@@ -152,7 +154,7 @@ function scene:create( event )
 
 			Runtime:removeEventListener("touch",touchScreen)
 			Runtime:removeEventListener("enterFrame", user)
-
+			display.remove(walldGroup)
          	display.remove(user)
 			composer.removeScene("view06_chick_game")
 			composer.gotoScene("view07_chick_game_over")
