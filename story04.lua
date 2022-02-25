@@ -100,7 +100,12 @@ function scene:create( event )
 		nextScript()
 	end
 
+	local function gametap( event )
+		composer.gotoScene("View01_bear")
+	end
+
 	background:addEventListener("tap",tap)
+	ending:addEventListener("tap", gametap)
 
 	-- 레이어 정리
 	sceneGroup:insert(background)
