@@ -74,7 +74,9 @@ function scene:create( event )
 		display.remove(hed[count])
 		if count == 6 then
 			timer.cancel(timer1)
-			composer.gotoScene("View01_hedgehog_success")
+			composer.removeScene("View01_hedgehog")
+			composer.setVariable("score", 6)
+			composer.gotoScene("View01_hedgehog_game_over")
 		elseif count<6 then
 			spawn()
 		end
@@ -86,7 +88,8 @@ function scene:create( event )
 		if(limit <= 0) then
 			timer.cancel(timer1)
 			composer.removeScene("View01_hedgehog")
-			composer.gotoScene("View01_hedgehog_fail")
+			composer.setVariable("score", -1)
+			composer.gotoScene("View01_hedgehog_game_over")
 		end
 	end
 
