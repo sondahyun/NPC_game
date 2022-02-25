@@ -17,7 +17,6 @@ function scene:create( event )
 		local background = display.newImageRect("Content/PNG/cat/배경.png",display.contentWidth, display.contentHeight) ---배경
 		background.x,background.y = display.contentWidth/2,display.contentHeight/2
 		sceneGroup:insert(background)
-		sceneGroup:insert(background)
 
 		local background1 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 		background1:setFillColor(0)
@@ -25,17 +24,18 @@ function scene:create( event )
 		sceneGroup:insert(background1)
 
 		local function gomap(event) -- 게임 pass 후 넘어감
-			audio.stop(1)
 			composer.removeScene("View02_cat")
 			composer.gotoScene( "story03" )
 		end
+
 		local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
 		backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
 		sceneGroup:insert(backtomap)
+
 		backtomap:addEventListener("touch",gomap)
 	else
 		composer.removeScene("View02_cat")
-		--composer.gotoScene("View03_cat")
+		composer.gotoScene("View03_cat")
 	end
 end
 

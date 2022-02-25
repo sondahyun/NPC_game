@@ -36,7 +36,6 @@ function scene:create( event )
 			fish[i].x,fish[i].y=pond.x+math.random(-200,200),pond.y+math.random(-200,200)
 		end
 
-		sceneGroup:insert(fishGroup)
 		--스코어 출력--
 		local score=0
 		local print= display.newImageRect("Content/PNG/cat/스코어.png",150*3,200*0.7)
@@ -53,25 +52,7 @@ function scene:create( event )
 		sceneGroup:insert(showScore)
 		sceneGroup:insert(howtoplay)
 
-		fishGroup:toFront()
-
-		--탭 이벤트--
-		local function catch(event)
-			display.remove(event.target)
-			score=score+1
-			showScore.text=score
-
-			if score==12 then
-				composer.setVariable("complete",true)
-				ff=2
-				composer.removeScene("View01_cat")
-				composer.gotoScene("View02_cat")
-			end
-		end
-
-		for i=1,12 do
-			fish[i]:addEventListener("tap",catch)
-		end
+		--fishGroup:toFront()
 		
 		-- 시간 제한 --
 
@@ -86,8 +67,7 @@ function scene:create( event )
 		showLimit:setFillColor(0)
 		showLimit.size = 70
 		sceneGroup:insert(print3)
-		sceneGroup:insert(print3)
-		showScore:toFront()
+		--showScore:toFront()
 		sceneGroup:insert(showLimit)
 
 		local function timeAttack(event)
@@ -96,13 +76,35 @@ function scene:create( event )
 
 			if limit == 0 then
 				composer.setVariable("complete",false)
-				makefish()
+				audio.pause( explosionSound )
+				timer.cancel(timer1)
+				--makefish()
 				composer.removeScene("View01_cat2")
 				composer.gotoScene("View02_cat")
 			end
 		end
 
-		timer.performWithDelay(1000,timeAttack,0)
+		timer1=timer.performWithDelay(1000,timeAttack,0)
+
+		--탭 이벤트--
+		local function catch(event)
+			display.remove(event.target)
+			score=score+1
+			showScore.text=score
+
+			if score==12 then
+				composer.setVariable("complete",true)
+				audio.pause( explosionSound )
+				timer.cancel( timer1 )
+				ff=2
+				composer.removeScene("View01_cat")
+				composer.gotoScene("View02_cat")
+			end
+		end
+
+		for i=1,12 do
+			fish[i]:addEventListener("tap",catch)
+		end
 	end
 	
 	if ff==0 then

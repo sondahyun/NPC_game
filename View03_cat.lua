@@ -26,8 +26,6 @@ function scene:create( event )
 	end
 	
 	backgame:addEventListener("tap",retrybtntap)
-	--sceneGroup:insert(backgame)
-
 end
 
 function scene:show( event )
