@@ -11,8 +11,8 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
-	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
-	audio.play( explosionSound )
+	--local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	--audio.play( explosionSound )
 
 	local background = display.newImageRect("Content/PNG/dog/배경.png",display.contentWidth, display.contentHeight) ---배경
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
@@ -31,7 +31,7 @@ function scene:create( event )
 	local result = composer.getVariable("complete")
 
 	local function nextlevel(event)
-		audio.pause( explosionSound )
+		--audio.pause( explosionSound )
 		composer.gotoScene("view02_dog")
 	end
 

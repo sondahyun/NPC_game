@@ -20,7 +20,6 @@ function scene:create( event )
 	------------------
 
 	local function tap( event )
-		audio.pause( explosionSound )
 		composer.removeScene("view00_dog_start")
 		composer.gotoScene("view01_dog")
 	end

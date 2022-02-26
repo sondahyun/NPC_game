@@ -28,11 +28,14 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 	-------------------- 배경구성
-	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
-	audio.play( explosionSound )
+	--local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	--audio.play( explosionSound )
 
-	local background = display.newImage( "Content/PNG/dog/background.png")
+	local background = display.newImage( "Content/PNG/dog/배경.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+
+	local dog = display.newImage( "Content/PNG/script/강아지.png")
+	dog.x, dog.y = display.contentWidth*0.2, display.contentHeight*0.56
 
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.95, display.contentWidth, display.contentHeight*0.2)
 	section:setFillColor(0.5, 0.5, 0.5, 0.5)
@@ -58,7 +61,6 @@ function scene:create( event )
 				index = index + 1
 			end
 		else
-			audio.pause( explosionSound )
 			composer.gotoScene("view02_dog")
 		end
 	end
@@ -72,6 +74,7 @@ function scene:create( event )
 	------
 	sceneGroup:insert(background)
 	sceneGroup:insert(section)
+	sceneGroup:insert(dog)
 	sceneGroup:insert(script)
 end
 

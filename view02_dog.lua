@@ -9,19 +9,22 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
-	local background = display.newImage( "Content/PNG/dog//background.png")
+	local background = display.newImage( "Content/PNG/dog/배경.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
-	audio.play( explosionSound )
+	--local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	--audio.play( explosionSound )
 	
+	local dog = display.newImage( "Content/PNG/dog/강아지.png")
+	dog.x, dog.y = display.contentWidth/2, display.contentHeight*0.8
+
 	local starNum = 15;
 	local star = {}
 	local starGroup = display.newGroup()
 
 	for i = 1,starNum do
 		local num = math.random(1, 2);
-		star[i] = display.newImage(starGroup, "Content/PNG/dog//star"..num..".png")
+		star[i] = display.newImage(starGroup, "Content/PNG/dog/별"..num..".png")
 		star[i].x = background.x + math.random(-500, 500)
 		star[i].y = background.y + math.random(-900, 700)
 	end
@@ -40,7 +43,7 @@ function scene:create( event )
 		if score == starNum then
 			timer.cancel( timer1 )
 			composer.setVariable("complete", 1)
-			audio.pause( explosionSound )
+			--audio.pause( explosionSound )
 			composer.gotoScene("view03_dog_pass") 
 		end
 	end
@@ -52,7 +55,7 @@ function scene:create( event )
 	local limit = 30
 
 	local showLimit = display.newText(limit, display.contentWidth*0.9, display.contentHeight*0.5)
-	showLimit:setFillColor(0)
+	showLimit:setFillColor(1)
 	showLimit.size = 80
 	--[[sceneGroup:insert(showLimit)--]]
 	local count = 0
@@ -75,6 +78,7 @@ function scene:create( event )
 	sceneGroup:insert(background)
 	sceneGroup:insert(starGroup)
 	sceneGroup:insert(showScore)
+	sceneGroup:insert(dog)
 	sceneGroup:insert(showLimit)
 end
 
