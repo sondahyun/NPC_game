@@ -47,7 +47,7 @@ function scene:create( event )
 	speaker:setFillColor(0)
 
 	local script = display.newText("더미 텍스트입니다.", section.x+30, section.y+30, display.contentWidth, 120)
-	script.width = display.contentWidth*0.5
+	script.width = display.contentWidth
 	script.size = 55
 	script:setFillColor(0)
 

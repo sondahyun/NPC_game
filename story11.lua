@@ -49,13 +49,13 @@ function scene:create( event )
 	speaker:setFillColor(0)
 
 	local script = display.newText("더미 텍스트입니다.", section.x+100, section.y+30, display.contentWidth, 120)
-	script.width = display.contentWidth*0.6
+	script.width = display.contentWidth
 	script.size = 55
 	script:setFillColor(0)
 
-	local ending = display.newImage("Content/PNG/TheEnd.png")
-	ending.x, ending.y = display.contentWidth/2, display.contentHeight/2
-	ending.alpha=0
+	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
+	ending.size = 90
+	ending:setFillColor(1)
 
 
 	-----음악
@@ -79,6 +79,7 @@ function scene:create( event )
     local home = audio.loadStream( "Content/PNG/script/Thankful.mp3" )
     audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue
     audio.play(home)
+
 
     -------------
 
@@ -121,7 +122,7 @@ function scene:create( event )
 				index = index + 1
 			end
 		else
-			ending.alpha=1
+			ending.text = "The End"
 		end
 	end
 	nextScript()
@@ -130,13 +131,13 @@ function scene:create( event )
 		nextScript()
 	end
 
-    local function stagetap(event)
+ 
+	local function stagetap(event)
 		audio.pause( home )
 		composer.removeScene("story11")
 		composer.setVariable("catcheck", 1)
 		composer.gotoScene("stage05")
 	end
-
  
 	section:addEventListener("tap",tap)
 	ending:addEventListener("tap", stagetap)

@@ -43,13 +43,13 @@ function scene:create( event )
 
 	local speakerImg = display.newRect(section.x - 360, section.y - 580, 600, 600)
 
-	local speaker = display.newText("더미 텍스트", section.x-250, section.y-75)
-	speaker.size = 80
+	local speaker = display.newText("더미 텍스트", section.x-290, section.y-75)
+	speaker.size = 50
 	speaker:setFillColor(0)
 
-	local script = display.newText("더미 텍스트입니다.", section.x+50, section.y+30, display.contentWidth, 120)
-	script.width = display.contentWidth*0.5
-	script.size = 55
+	local script = display.newText("더미 텍스트입니다.", section.x+100, section.y+30, display.contentWidth, 120)
+	script.width = display.contentWidth
+	script.size = 50
 	script:setFillColor(0)
 
 	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
