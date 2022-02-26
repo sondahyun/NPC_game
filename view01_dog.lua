@@ -28,6 +28,9 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 	-------------------- 배경구성
+	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	audio.play( explosionSound )
+
 	local background = display.newImage( "Content/PNG/dog/background.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
@@ -55,6 +58,7 @@ function scene:create( event )
 				index = index + 1
 			end
 		else
+			audio.pause( explosionSound )
 			composer.gotoScene("view02_dog")
 		end
 	end

@@ -11,6 +11,9 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
+	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	audio.play( explosionSound )
+
 	local background = display.newImageRect("Content/PNG/dog/배경.png",display.contentWidth, display.contentHeight) ---배경
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -25,6 +28,7 @@ function scene:create( event )
 
 	local function gomap(event) -- 게임 pass 후 넘어감
 		if event.phase == "began" then--view20ring
+				audio.pause( explosionSound )
 				composer.removeScene("view05_dog_end")
 				composer.gotoScene( "story11" )
 		end

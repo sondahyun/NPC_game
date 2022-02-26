@@ -10,6 +10,9 @@ local scene = composer.newScene()
 
 function scene:create( event )
 	local sceneGroup = self.view
+	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	audio.play( explosionSound )
+	
 
 	local background = display.newImageRect("Content/PNG/dog/배경.png",display.contentWidth, display.contentHeight) ---배경
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
@@ -28,6 +31,7 @@ function scene:create( event )
 	sceneGroup:insert(backgame)
 
 	local function retrybtntap(event)
+		audio.pause( explosionSound )
 		composer.removeScene("view03_dog_fail")
 		composer.gotoScene("view02_dog")
 	end

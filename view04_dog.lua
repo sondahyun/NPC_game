@@ -9,6 +9,9 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 
+	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	audio.play( explosionSound )
+
 	local background = display.newImage( "Content/PNG/dog/background.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
@@ -36,6 +39,7 @@ function scene:create( event )
 		showScore.text = "소원 개수: "..score;
 		if score == starNum then
 			timer.cancel( timer1 )
+			audio.pause( explosionSound )
 			composer.setVariable("complete", 1)
 			composer.gotoScene("view05_dog_end") 
 		end

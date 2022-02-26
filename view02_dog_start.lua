@@ -11,6 +11,9 @@ local scene = composer.newScene()
 function scene:create( event )
 	local sceneGroup = self.view
 	-------------------- 배경구성
+	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	audio.play( explosionSound )
+	
 	local background = display.newImage( "Content/PNG/dog/밤하늘.jpg")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 	------------------
@@ -21,6 +24,7 @@ function scene:create( event )
 	leveltext.text = "Level "..level
 
 	local function tap( event )
+		audio.pause( explosionSound )
 		composer.removeScene("view02_dog_start")
 		composer.gotoScene("view04_dog")
 	end

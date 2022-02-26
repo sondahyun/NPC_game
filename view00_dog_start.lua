@@ -8,7 +8,7 @@
 local composer = require( "composer" )
 local scene = composer.newScene()
 
-local explosionSound = audio.loadSound( "image/City Key.mp3" )
+local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
 audio.play( explosionSound )
 
 function scene:create( event )
@@ -20,6 +20,7 @@ function scene:create( event )
 	------------------
 
 	local function tap( event )
+		audio.pause( explosionSound )
 		composer.removeScene("view00_dog_start")
 		composer.gotoScene("view01_dog")
 	end

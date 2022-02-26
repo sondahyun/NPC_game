@@ -12,6 +12,9 @@ function scene:create( event )
 	local background = display.newImage( "Content/PNG/dog//background.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
+	local explosionSound = audio.loadSound( "Content/PNG/script/City Key.mp3" )
+	audio.play( explosionSound )
+	
 	local starNum = 15;
 	local star = {}
 	local starGroup = display.newGroup()
@@ -37,6 +40,7 @@ function scene:create( event )
 		if score == starNum then
 			timer.cancel( timer1 )
 			composer.setVariable("complete", 1)
+			audio.pause( explosionSound )
 			composer.gotoScene("view03_dog_pass") 
 		end
 	end
@@ -59,6 +63,7 @@ function scene:create( event )
 		print(limit)
 		if(limit <= 0) then
 			timer.cancel( timer1 )
+			audio.pause( explosionSound )
 			composer.removeScene("view02_dog")
 			composer.gotoScene("view03_dog_fail")
 		end
