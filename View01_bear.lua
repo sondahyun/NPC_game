@@ -20,7 +20,7 @@ function scene:create( event )
 	section:setFillColor(0.35, 0.35, 0.35, 0.35)
 	section.alpha=0
 
-	local script = display.newText("How to play:\n위에서 내려오는 음식을 받으세요\n쓰레기를 받게 될 시에는 점수가 깎입니다. \n5점을 달성할 시 게임 클리어 입니다.", section.x+30, section.y-100, native.systemFontBold)
+	local script = display.newText("How to play:\n위에서 내려오는 음식을 받으세요\n쓰레기를 받게 될 시에는 점수가 깎입니다. \n10점을 달성할 시 게임 클리어 입니다.", section.x+30, section.y-100, native.systemFontBold)
 	script.size = 45
 	script:setFillColor(1)
 	script.alpha=0
@@ -79,7 +79,7 @@ function scene:create( event )
 	end
 
 	local function scriptremove(event)
-		timer1=timer.performWithDelay(1000, spawn, 0)
+		timer1=timer.performWithDelay(500, spawn, 0)
 		section.alpha=0
 		script.alpha=0
 		Runtime:addEventListener( "touch", bearmove)
@@ -119,7 +119,7 @@ function scene:create( event )
 				composer.setVariable("score", -1)
 				composer.gotoScene("View01_bear_game_over")
 
-			elseif score == 5 then
+			elseif score == 10 then
 				pagemove()
 				audio.pause(explosionSound)
 				composer.removeScene("View01_bear")
