@@ -21,7 +21,7 @@ function scene:create( event )
 	background2:setFillColor(0.35, 0.35, 0.35, 0.35)
 
 	local dog = display.newImage("Content/PNG/stage/스테이지5강아지.png")
-	dog.x, dog.y = 310, 1050
+	dog.x, dog.y = 360, 1050
 	dog.alpha=0.5
 
 	local cat = display.newImage("Content/PNG/stage/스테이지5고양이.png")
