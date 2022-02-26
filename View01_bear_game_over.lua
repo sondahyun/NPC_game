@@ -33,10 +33,9 @@ function scene:create( event )
 
 	local close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
 	close.x, close.y = 950, 400
-	sceneGroup:insert(close)
+	
 	
 	local function gomap(event) -- 게임 pass 후 넘어감
-		close:addEventListener("touch",gomap)
 		if event.phase == "began" then--view20ring
 				composer.removeScene("View01_bear_game_over")
 				composer.gotoScene( "story05" )
@@ -46,9 +45,6 @@ function scene:create( event )
 	local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
 	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(backtomap)
-
-	
-	
 	
 
 	local backgame =display.newImage("Content/PNG/fail.png") --실패할 경우
@@ -60,7 +56,11 @@ function scene:create( event )
 		backgame.alpha = 1
 		backtomap.alpha = 0
 		close:addEventListener("touch",backtogame)
+	else
+		close:addEventListener("touch", gomap)
 	end
+
+	sceneGroup:insert(close)
 
 end
 
