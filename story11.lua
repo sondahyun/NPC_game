@@ -60,7 +60,10 @@ function scene:create( event )
 
 	-----음악
 
-    
+    -- showoverlay 함수 사용 option
+    local options = {
+        isModal = true
+    }
 
     --샘플 볼륨 이미지
     local volumeButton = display.newImage("Content/PNG/설정/설정.png")

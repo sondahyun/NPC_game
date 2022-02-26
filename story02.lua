@@ -78,7 +78,10 @@ function scene:create( event )
 
     -------------
 
-
+	-- showoverlay 함수 사용 option
+    local options = {
+        isModal = true
+    }
 
 	local index = 1
 		local function nextScript( ... )
