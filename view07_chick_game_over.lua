@@ -28,6 +28,18 @@ function scene:create( event )
 	showScore1.size = 60
 	sceneGroup:insert(showScore1)]]
 
+	--close 버튼
+	local clear_close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
+	clear_close.x, clear_close.y = 950, 400
+	clear_close.alpha = 0
+	
+
+	local fail_close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
+	fail_close.x, fail_close.y = 950, 800
+	fail_close.alpha = 0
+
+
+	--돌아가기
 	local function backtogame(event) --실패할 경우 다시 게임으로 돌아가기
 		if event.phase == "began" then 
 				composer.removeScene("view07_chick_game_over")
@@ -42,22 +54,29 @@ function scene:create( event )
 		end
 	end
 
+	--종료창
 	local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
 	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
+	backtomap.alpha = 0
 	sceneGroup:insert(backtomap)
-	backtomap:addEventListener("touch",gomap)
 
 	local backgame =display.newImage("Content/PNG/fail.png") --실패할 경우
 	backgame.x, backgame.y = display.contentWidth/2, display.contentHeight/2
 	backgame.alpha = 0
 	sceneGroup:insert(backgame)
 
+	--점수따라 다름
 	if score3 < 15 then
 		backgame.alpha = 1
-		backtomap.alpha = 0
-		backgame:addEventListener("touch",backtogame)
+		fail_close.alpha = 1
+		fail_close:addEventListener("touch",backtogame)
+	else
+		backtomap.alpha = 1
+		clear_close.alpha = 1
+		clear_close:addEventListener("touch",gomap)
 	end
-	--sceneGroup:insert(showScore1)
+	sceneGroup:insert(fail_close)
+	sceneGroup:insert(clear_close)
 
 end
 
