@@ -69,7 +69,7 @@ function scene:create( event )
 	sceneGroup:insert(background)
 	sceneGroup:insert(dog)
 	sceneGroup:insert(cat)
-	--sceneGroup:insert(button1)
+	sceneGroup:insert(button1)
 	sceneGroup:insert(background2)
 	sceneGroup:insert(arrowleft)
 
