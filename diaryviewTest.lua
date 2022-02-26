@@ -36,11 +36,11 @@ function scene:create( event )
 	local background = display.newImageRect("Content/PNG/diary/일지_배경.png", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-	local speakerImg = display.newRect(display.contentCenterX, display.contentHeight*0.7, 1000, 1000)
+	local speakerImg = display.newRect(display.contentCenterX, display.contentHeight*0.73046875, 1100, 940)
 	local speaker = display.newRect(display.contentCenterX, display.contentHeight*0.2, 700, 700)
 	local index = 1
 
-	local button2 = display.newImageRect("Content/PNG/diary/닫기.png",150*0.4,200*0.4)
+	local button2 = display.newImage("Content/PNG/diary/닫기.png")
 	button2.x,button2.y=display.contentWidth*0.95,display.contentHeight*0.05
 
 	local arrowleft=display.newImageRect("Content/PNG/diary/arrow.png",80, 80)
