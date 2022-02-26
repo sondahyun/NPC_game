@@ -41,7 +41,7 @@ function scene:create( event )
 	floor.name = 'floor'
 	physics.addBody(floor, 'static')
 
-	local bear = display.newImageRect("Content/PNG/bear/갈색곰.png", 200, 350)
+	local bear = display.newImageRect("Content/PNG/bear/갈색곰.png", 300, 600)
 	bear.x, bear.y = display.contentWidth*0.4, display.contentHeight*0.8
 	physics.addBody(bear, 'static')
 	bear.name = 'bear'

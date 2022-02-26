@@ -38,7 +38,7 @@ function scene:create( event )
 
 		--스코어 출력--
 		local score=0
-		local print= display.newImageRect("Content/PNG/cat/스코어.png",150*3,200*0.7)
+		local print= display.newImageRect("Content/PNG/스코어.png",150*3,200*0.8)
 		print.x,print.y=display.contentWidth*0.52,display.contentHeight*0.05
 		local showScore = display.newText("",display.contentWidth*0.51,display.contentHeight*0.05)
 		showScore:setFillColor(0)
@@ -60,7 +60,7 @@ function scene:create( event )
 
 
 		local limit=10
-		local print3= display.newImageRect("Content/PNG/cat/시간.png",150*2,200*0.7)
+		local print3= display.newImageRect("Content/PNG/시간.png",150*2,200*0.8)
 		print3.x,print3.y=display.contentWidth*0.15,display.contentHeight*0.05
 		print3.size = 70
 		local showLimit = display.newText("",display.contentWidth*0.15,display.contentHeight*0.05)
