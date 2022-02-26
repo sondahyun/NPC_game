@@ -3,6 +3,8 @@
 local composer = require( "composer" )
 
 local scene = composer.newScene()
+local explosionSound = audio.loadSound( "Content/PNG/script/It Ain't Right.mp3" )
+audio.play( explosionSound )
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -146,7 +148,7 @@ function scene:create( event )
 			display.remove(walldGroup)
 			display.remove(walldGroup1)
          	display.remove(user)
-
+         	audio.pause(explosionSound)
 			composer.setVariable("score", time)
 			composer.removeScene("view06_chick_game") --game
 			composer.gotoScene("view07_chick_game_over") --gameover
@@ -181,6 +183,7 @@ function scene:create( event )
 			display.remove(walldGroup)
 			display.remove(walldGroup1)
          	display.remove(user)
+         	audio.pause(explosionSound)
 			composer.removeScene("view06_chick_game")
 			composer.gotoScene("view07_chick_game_over")
 	 
