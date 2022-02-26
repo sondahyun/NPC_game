@@ -36,8 +36,8 @@ function scene:create( event )
 	local scorebackground = display.newImageRect("Content/PNG/스코어.png", 300, 150)
 	scorebackground.x, scorebackground.y = display.contentWidth*0.9-100, display.contentHeight*0.1
 
-	local floor = display.newRect(display.contentWidth/2, display.contentHeight*0.9, display.contentWidth, display.contentHeight*0.2)
-	floor:setFillColor(0)
+	local floor = display.newImage("Content/PNG/bear/곰데드라인.png")
+	floor.x, floor.y = display.contentWidth/2, display.contentHeight*0.95
 	floor.name = 'floor'
 	physics.addBody(floor, 'static')
 

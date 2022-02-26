@@ -132,7 +132,7 @@ function scene:create( event )
 		audio.pause( home )
 		composer.removeScene("story03")
 		composer.setVariable("bearcheck", 1)
-		composer.gotoScene("stage03")
+		composer.gotoScene("stage03") 
 	end
 
 	section:addEventListener("tap",tap)

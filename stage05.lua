@@ -32,6 +32,7 @@ function scene:create( event )
 	arrowleft.x, arrowleft.y = display.contentWidth*0.1, display.contentHeight/2
 
 	local dcheck=composer.getVariable("dogcheck")
+	local c_check=composer.getVariable("catcheck")
 
 	local function beforemove()
 		composer.gotoScene("stage04")
@@ -41,10 +42,20 @@ function scene:create( event )
 		composer.gotoScene("story10")
 	end
 
+	local function storymove2()
+		composer.gotoScene("diaryview00")
+	end
+
+	if c_check then
+		background2.alpha=0
+		cat.alpha=1
+		dcheck=1
+		cat:addEventListener("tap", storymove2) 
+	end
+
 	if dcheck then
 		background2.alpha=0
-		dog.alpha=1
-		cat.alpha=1
+		dog.alpha=1	
 		dog:addEventListener("tap", storymove)
 	end
 
