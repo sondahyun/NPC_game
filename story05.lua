@@ -34,7 +34,6 @@ function scene:create( event )
 	local sceneGroup = self.view
 	loadedEnding = loadsave.loadTable( "ending.json" )
 
-	
 	local background = display.newImage( "Content/PNG/script/background/산속.png")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
@@ -57,8 +56,7 @@ function scene:create( event )
 	ending:setFillColor(1)
 
 	-----음악
-
-    
+	local m=composer.getVariable("move")
 
     --샘플 볼륨 이미지
     local volumeButton = display.newImage("Content/PNG/설정/설정.png")
@@ -130,13 +128,14 @@ function scene:create( event )
 
 	local function stagetap(event)
  		audio.pause( home )
- 		composer.setVariable("hedcheck", 1)
 		composer.removeScene("story05")
+		composer.setVariable("hedcheck", 1)
 		composer.gotoScene("stage03")
 	end
 
-	section:addEventListener("tap",tap)
+	
 	ending:addEventListener("tap", stagetap)
+	section:addEventListener("tap",tap)
 	-- 레이어 정리
 	sceneGroup:insert(background)
 	sceneGroup:insert(section)
