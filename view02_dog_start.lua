@@ -16,9 +16,14 @@ function scene:create( event )
 	
 	local background = display.newImage( "Content/PNG/dog/밤하늘.jpg")
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+
+	local background1 = display.newImage( "Content/PNG/dog/level2.png")
+	background1.x, background1.y = display.contentWidth/2, display.contentHeight/2
+
 	------------------
 	local leveltext = display.newText("", display.contentWidth/2, display.contentHeight/2)
 	leveltext.size = 90
+	leveltext.x, leveltext.y = display.contentWidth/2, display.contentHeight/2 - 200
 	leveltext:setFillColor(1)
 	local level = 2
 	leveltext.text = "Level "..level
@@ -29,8 +34,9 @@ function scene:create( event )
 		composer.gotoScene("view04_dog")
 	end
 
-	background:addEventListener("tap",tap)
+	background1:addEventListener("tap",tap)
 	sceneGroup:insert(background)
+	sceneGroup:insert(background1)
 	sceneGroup:insert(leveltext)
 	------
 end
