@@ -53,9 +53,9 @@ function scene:create( event )
 	script.size = 55
 	script:setFillColor(0)
 
-	local ending = display.newText("", display.contentWidth/2, display.contentHeight/2)
-	ending.size = 90
-	ending:setFillColor(1)
+	local ending = display.newImage("Content/PNG/TheEnd.png")
+	ending.x, ending.y = display.contentWidth/2, display.contentHeight/2
+	ending.alpha=0
 
 
 	-----음악
@@ -79,7 +79,6 @@ function scene:create( event )
     local home = audio.loadStream( "Content/PNG/script/Thankful.mp3" )
     audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue
     audio.play(home)
-
 
     -------------
 
@@ -122,7 +121,7 @@ function scene:create( event )
 				index = index + 1
 			end
 		else
-			ending.text = "The End"
+			ending.alpha=1
 		end
 	end
 	nextScript()
@@ -131,13 +130,13 @@ function scene:create( event )
 		nextScript()
 	end
 
- 
-	local function stagetap(event)
+    local function stagetap(event)
 		audio.pause( home )
 		composer.removeScene("story11")
 		composer.setVariable("catcheck", 1)
 		composer.gotoScene("stage05")
 	end
+
  
 	section:addEventListener("tap",tap)
 	ending:addEventListener("tap", stagetap)
