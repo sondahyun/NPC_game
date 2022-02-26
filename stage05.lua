@@ -20,15 +20,15 @@ function scene:create( event )
 	local background2 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	background2:setFillColor(0.35, 0.35, 0.35, 0.35)
 
-	local dog = display.newImageRect("Content/PNG/stage/스테이지5강아지.png", 300, 350)
-	dog.x, dog.y = display.contentWidth*0.35, display.contentHeight*0.56
+	local dog = display.newImage("Content/PNG/stage/스테이지5강아지.png")
+	dog.x, dog.y = 310, 1050
 	dog.alpha=0.5
 
-	local cat = display.newImageRect("Content/PNG/stage/스테이지5고양이.png", 200, 450)
-	cat.x, cat.y = display.contentWidth*0.75, display.contentHeight*0.75
+	local cat = display.newImage("Content/PNG/stage/스테이지5고양이.png")
+	cat.x, cat.y = 800, 1400
 	cat.alpha=0.5
 
-	local arrowleft = display.newImageRect("Content/PNG/stage/왼쪽넘기기.png",80, 80)
+	local arrowleft = display.newImage("Content/PNG/stage/왼쪽넘기기.png")
 	arrowleft.x, arrowleft.y = display.contentWidth*0.1, display.contentHeight/2
 
 	local dcheck=composer.getVariable("dogcheck")

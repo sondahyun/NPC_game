@@ -20,14 +20,14 @@ function scene:create( event )
 	local background2 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	background2:setFillColor(0.35, 0.35, 0.35, 0.35)
 
-	local chick = display.newImageRect("Content/PNG/stage/스테이지4병아리.png", 150, 150)
-	chick.x, chick.y = display.contentWidth*0.45, display.contentHeight*0.5
+	local chick = display.newImage("Content/PNG/stage/스테이지4병아리.png")
+	chick.x, chick.y = 490, 940
 	chick.alpha=0.5
 
-	local arrowleft = display.newImageRect("Content/PNG/stage/왼쪽넘기기.png",80, 80)
+	local arrowleft = display.newImage("Content/PNG/stage/왼쪽넘기기.png")
 	arrowleft.x, arrowleft.y = display.contentWidth*0.1, display.contentHeight/2
 	
-	local arrowright = display.newImageRect("Content/PNG/stage/오른쪽넘기기.png",80, 80)
+	local arrowright = display.newImage("Content/PNG/stage/오른쪽넘기기.png")
 	arrowright.x, arrowright.y = display.contentWidth*0.9, display.contentHeight/2
 
 	local check=composer.getVariable("chickcheck")

@@ -16,10 +16,10 @@ function scene:create( event )
 	local background = display.newImageRect("Content/PNG/stage/스테이지1.png", display.contentWidth, display.contentHeight)
 	background.x, background.y=display.contentWidth/2, display.contentHeight/2
 
-	local cat = display.newImageRect("Content/PNG/stage/스테이지1고양이.png", 300, 300)
-	cat.x, cat.y = display.contentWidth*0.35, display.contentHeight*0.65
+	local cat = display.newImage("Content/PNG/stage/스테이지1고양이.png")
+	cat.x, cat.y = 630, 1150
 
-	local arrowright = display.newImageRect("Content/PNG/stage/오른쪽넘기기.png",80, 80)
+	local arrowright = display.newImage("Content/PNG/stage/오른쪽넘기기.png")
 	arrowright.x, arrowright.y = display.contentWidth*0.9, display.contentHeight/2
 
 	local function storymove()

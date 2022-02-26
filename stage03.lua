@@ -20,18 +20,18 @@ function scene:create( event )
 	local background2 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	background2:setFillColor(0.35, 0.35, 0.35, 0.35)
 
-	local bear = display.newImageRect("Content/PNG/stage/스테이지3곰.png", 200, 350)
-	bear.x, bear.y = display.contentWidth*0.3, display.contentHeight*0.35
+	local bear = display.newImage("Content/PNG/stage/스테이지3곰.png")
+	bear.x, bear.y = 315, 710
 	bear.alpha=0.5
 
-	local hed= display.newImageRect("Content/PNG/stage/스테이지3고슴도치.png", 200, 250)
-	hed.x, hed.y = display.contentWidth*0.73, display.contentHeight*0.7
+	local hed= display.newImage("Content/PNG/stage/스테이지3고슴도치.png")
+	hed.x, hed.y = 770, 1160
 	hed.alpha=0.5
 	
-	local arrowleft = display.newImageRect("Content/PNG/stage/왼쪽넘기기.png",80, 80)
+	local arrowleft = display.newImage("Content/PNG/stage/왼쪽넘기기.png")
 	arrowleft.x, arrowleft.y = display.contentWidth*0.1, display.contentHeight/2
 	
-	local arrowright = display.newImageRect("Content/PNG/stage/오른쪽넘기기.png",80, 80)
+	local arrowright = display.newImage("Content/PNG/stage/오른쪽넘기기.png")
 	arrowright.x, arrowright.y = display.contentWidth*0.9, display.contentHeight/2
 
 	local bcheck=composer.getVariable("bearcheck")
