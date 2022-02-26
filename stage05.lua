@@ -24,6 +24,10 @@ function scene:create( event )
 	dog.x, dog.y = 360, 1050
 	dog.alpha=0.5
 
+	local button1 = display.newImage("Content/PNG/stage/일지열어보자.png")
+	button1.x, button1.y=800,1120
+	button1.alpha=0.5
+
 	local cat = display.newImage("Content/PNG/stage/스테이지5고양이.png")
 	cat.x, cat.y = 800, 1400
 	cat.alpha=0.5
@@ -49,8 +53,9 @@ function scene:create( event )
 	if c_check then
 		background2.alpha=0
 		cat.alpha=1
+		button1.alpha=1
 		dcheck=1
-		cat:addEventListener("tap", storymove2) 
+		button1:addEventListener("tap", storymove2) 
 	end
 
 	if dcheck then
@@ -64,6 +69,7 @@ function scene:create( event )
 	sceneGroup:insert(background)
 	sceneGroup:insert(dog)
 	sceneGroup:insert(cat)
+	--sceneGroup:insert(button1)
 	sceneGroup:insert(background2)
 	sceneGroup:insert(arrowleft)
 
