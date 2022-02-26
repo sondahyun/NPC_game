@@ -61,6 +61,7 @@ function scene:create( event )
 					type = "image",
 					filename = Data[index].img
 				}
+
 				speaker.alpha = 1
 				speaker.fill = {
 					type = "image",
