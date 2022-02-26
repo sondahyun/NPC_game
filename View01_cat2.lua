@@ -22,7 +22,7 @@ function scene:create( event )
 		howtoplay.size=50
 
 
-		local pond = display.newCircle(display.contentWidth*0.5,display.contentHeight*0.7,400)
+		local pond = display.newCircle(display.contentWidth*0.5,display.contentHeight*0.7,530)
 
 		local fish = { }
 		local fishGroup=display.newGroup() 
@@ -33,7 +33,7 @@ function scene:create( event )
 			else
 				fish[i] = display.newImage(fishGroup,"Content/PNG/cat/물고기1.png")
 			end
-			fish[i].x,fish[i].y=pond.x+math.random(-200,200),pond.y+math.random(-200,200)
+			fish[i].x,fish[i].y=pond.x+math.random(-480,480),pond.y+math.random(-380,500)
 		end
 
 		--스코어 출력--
