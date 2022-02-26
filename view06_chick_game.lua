@@ -60,7 +60,7 @@ function scene:create( event )
         physics.addBody(walld[i], "static")   
 
         walld1[i] = display.newImageRect(walldGroup1,"Content/PNG/chick/장애물2.png", display.contentWidth/10, display.contentHeight/25)
-        walld1[i].x = display.contentWidth*i*0.5 + 400
+        walld1[i].x = display.contentWidth*i*0.5 + 600
         walld1[i].y = value2_1[i]
         sceneGroup:insert(walldGroup1)
 

@@ -16,7 +16,7 @@ function scene:create( event )
 	local background = display.newImageRect("Content/PNG/mainPage/타이틀_배경.png", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-	local button1 = display.newImageRect("Content/PNG/mainPage/타이틀_시작버튼.png",150*5,200*0.8)
+	local button1 = display.newImage("Content/PNG/mainPage/타이틀_시작버튼.png")
 	button1.x,button1.y=display.contentWidth*0.5,display.contentHeight*0.85
 
 	local function tap(event)
