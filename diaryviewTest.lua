@@ -45,11 +45,11 @@ function scene:create( event )
 
 	local arrowleft=display.newImageRect("Content/PNG/diary/arrow.png",80, 80)
 	arrowleft.xScale= arrowleft.xScale*-1
-	arrowleft.x, arrowleft.y = speaker.x-320, speaker.y - 100
+	arrowleft.x, arrowleft.y = speaker.x-320, speaker.y - 65
 	arrowleft.alpha=0
 	
 	local arrowright=display.newImageRect("Content/PNG/diary/arrow.png",80, 80)
-	arrowright.x, arrowright.y = speaker.x+320, speaker.y - 100
+	arrowright.x, arrowright.y = speaker.x+320, speaker.y -65
 
 	local function nextScript()
 		if(index<=#Data) then
