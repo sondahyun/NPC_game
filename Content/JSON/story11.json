@@ -1,7 +1,7 @@
 [
 	{
 		"type": "Dialogue",
-		"speaker" : "강아지 주인",
+		"speaker" : "주인",
 		"img" : "Content/PNG/script/인간.png",
 		"content" : "코코야 내가 널 얼마나 찾았는지 몰라"
 	},
