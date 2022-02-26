@@ -25,6 +25,10 @@ function scene:create( event )
 	transition.to(background1,{alpha=0.5,time=1000}) -- 배경 어둡게
 	sceneGroup:insert(background1)
 
+	local fail_close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
+	fail_close.x, fail_close.y = 950, 800
+	fail_close.alpha = 1
+
 	local backgame =display.newImage("Content/PNG/fail.png") --실패할 경우
 	backgame.x, backgame.y = display.contentWidth/2, display.contentHeight/2
 	backgame.alpha = 1
@@ -36,11 +40,11 @@ function scene:create( event )
 		composer.gotoScene("view02_dog")
 	end
 	
-	backgame:addEventListener("tap",retrybtntap)
+	fail_close:addEventListener("tap",retrybtntap)
 	
 
 	--sceneGroup:insert(background1)
-	--sceneGroup:insert(fail)
+	sceneGroup:insert(fail_close)
 end
 
 function scene:hide( event )

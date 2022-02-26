@@ -30,8 +30,14 @@ function scene:create( event )
 
 	local result = composer.getVariable("complete")
 
+	--close 버튼
+	local clear_close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
+	clear_close.x, clear_close.y = 950, 400
+	clear_close.alpha = 0
+
+
 	local function nextlevel(event)
-		--audio.pause( explosionSound )
+		composer.removeScene("view03_dog_pass")
 		composer.gotoScene("view02_dog")
 	end
 
@@ -51,6 +57,7 @@ function scene:create( event )
 	-- sceneGroup으로 묶어줌--
 	sceneGroup:insert(ending)
 	sceneGroup:insert(background1)
+	sceneGroup:insert(clear_close)
 end
 
 function scene:hide( event )
@@ -63,6 +70,7 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
+		composer.removeScene("view03_dog_pass")
 		-- Called when the scene is now off screen
 	end
 end

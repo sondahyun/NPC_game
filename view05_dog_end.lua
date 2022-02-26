@@ -26,6 +26,12 @@ function scene:create( event )
 
 	local result = composer.getVariable("complete")
 
+	--close 버튼
+	local clear_close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
+	clear_close.x, clear_close.y = 950, 400
+	clear_close.alpha = 0
+
+
 	local function gomap(event) -- 게임 pass 후 넘어감
 		if event.phase == "began" then--view20ring
 				audio.stop(1)
@@ -38,12 +44,14 @@ function scene:create( event )
 		local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
 		backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
 		sceneGroup:insert(backtomap)
-		backtomap:addEventListener("touch",gomap)
+		clear_close.alpha = 1
+		clear_close:addEventListener("touch",gomap)
 	else
 		composer.gotoScene("view03_dog_fail")
 	end
 	--sceneGroup:insert(background1)
 	--sceneGroup:insert(backtomap)
+	sceneGroup:insert(clear_close)
 end
 
 function scene:hide( event )
