@@ -69,19 +69,12 @@ function scene:create( event )
 	end
 
 	local function bearmove(event)
-		if(event.phase == "ended") then
-			if bear.x>=60 and bear.x<=960 then
-				if event.x < bear.x then
-					bear.x=bear.x-40
-				elseif event.x>bear.x then
-					bear.x = bear.x+40	
-				end
-			elseif bear.x<60 then
-				bear.x = 60
-			elseif bear.x >960 then
-				bear.x = 960
-			end
-
+		if(event.x < display.contentWidth*0.1) then
+			bear.x = display.contentWidth*0.1
+		elseif event.x > display.contentWidth*0.9 then
+			bear.x = display.contentWidth*0.9
+		else
+			bear.x = event.x
 		end
 	end
 
@@ -89,7 +82,7 @@ function scene:create( event )
 		timer1=timer.performWithDelay(1000, spawn, 0)
 		section.alpha=0
 		script.alpha=0
-		Runtime:addEventListener( "touch", bearmove)
+		Runtime:addEventListener( "mouse", bearmove)
 	end	
 
 	local function titleremove(event)

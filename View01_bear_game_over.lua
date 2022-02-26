@@ -21,9 +21,6 @@ function scene:create( event )
 	board.alpha = 0.5
 	transition.to(board,{alpha=1,time=1000})
 	sceneGroup:insert(board)]]
-	local close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
-	close.x, close.y = 950, 400
-	sceneGroup:insert(close)
 	
 	local score3 = composer.getVariable("score")
 
@@ -44,6 +41,11 @@ function scene:create( event )
 	local backtomap =display.newImageRect("Content/PNG/클리어창.png",display.contentWidth/1.1,display.contentHeight/1.5) --성공할 경우
 	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(backtomap)
+
+	local close = display.newImageRect("Content/PNG/설정/닫기.png", 150, 150)
+	close.x, close.y = 950, 400
+	sceneGroup:insert(close)
+	
 	close:addEventListener("touch",gomap)
 
 	local backgame =display.newImage("Content/PNG/fail.png") --실패할 경우
