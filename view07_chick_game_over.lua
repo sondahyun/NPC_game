@@ -22,7 +22,7 @@ function scene:create( event )
 	transition.to(board,{alpha=1,time=1000})
 	sceneGroup:insert(board)]]
 
-	local score3 = 13 --composer.getVariable("score") ---점수 필요 없을경우 안써도 됌
+	local score3 = composer.getVariable("score") ---점수 필요 없을경우 안써도 됌
 	--[[local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/2) 
 	showScore1:setFillColor(1,0,0)
 	showScore1.size = 60

@@ -13,12 +13,22 @@ function scene:create( event )
 
 	local value1 = {}
 	for i=1,10 do
-		value1[i] = math.random(0,200)
+		value1[i] = math.random(0,1000)
+	end
+
+	local value1_1 = {}
+	for i=1,10 do
+		value1_1[i] = math.random(0,1000)
 	end
 
 	local value2 = {}
 	for i=1,10 do
-		value2[i] = display.contentWidth*0.46875 + value1[i]*1.5 --* display.contentWidth*0.20833333 -500
+		value2[i] = display.contentWidth*0.46875 + value1[i]*1.5 - 300 --* display.contentWidth*0.20833333 -500
+	end
+
+	local value2_1 = {}
+	for i=1,10 do
+		value2_1[i] = display.contentWidth*0.46875 + value1_1[i]*1.5 - 300 --* display.contentWidth*0.20833333 -500
 	end
 	
 	--배경화면
@@ -35,16 +45,26 @@ function scene:create( event )
 	physics.addBody(user, "dynamic", {density=.08, friction=0.1, bounce=1.0, radius=15})
 	sceneGroup:insert(user)
 
---그룹
+	--그룹
 	
     local walld = {}
     local walldGroup = display.newGroup()
+
+    local walld1 = {}
+    local walldGroup1 = display.newGroup()
     for i=1,10 do
-        walld[i] = display.newImageRect(walldGroup,"Content/PNG/chick/장애물.png", display.contentWidth/13, display.contentHeight/4)
+        walld[i] = display.newImageRect(walldGroup,"Content/PNG/chick/장애물.png", display.contentWidth/10, display.contentHeight/25)
         walld[i].x = display.contentWidth*i*0.5 + 400
-        walld[i].y = value2[i]*1.7
+        walld[i].y = value2[i]
         sceneGroup:insert(walldGroup)
         physics.addBody(walld[i], "static")   
+
+        walld1[i] = display.newImageRect(walldGroup1,"Content/PNG/chick/장애물2.png", display.contentWidth/10, display.contentHeight/25)
+        walld1[i].x = display.contentWidth*i*0.5 + 400
+        walld1[i].y = value2_1[i]
+        sceneGroup:insert(walldGroup1)
+
+        physics.addBody(walld1[i], "static")   
 	end
 
     
@@ -75,7 +95,10 @@ function scene:create( event )
     
     for i=1, 10 do
         walld[i].enterFrame = movewall --장애물 움직임
+        walld1[i].enterFrame = movewall
         Runtime:addEventListener("enterFrame", walld[i])
+        Runtime:addEventListener("enterFrame", walld1[i])
+
     end
 
 	function activeUser(self, event)
@@ -94,12 +117,8 @@ function scene:create( event )
 		
 		if event.phase == "ended" then
 			Runtime:removeEventListener("enterFrame", user)
-			--user.enterFrame = activeUser1
-			--Runtime:addEventListener("enterFrame", user)
 		end
-		--Runtime:removeEventListener("enterFrame", user)
 	end
-	--Runtime:removeEventListener("enterFrame", user)
 	Runtime:addEventListener("touch",touchScreen)
 
 	--timer
@@ -116,13 +135,16 @@ function scene:create( event )
 
 			for i=1,10 do
     			walld[i]:removeEventListener("collision")
+        		walld1[i]:removeEventListener("collision")
         		Runtime:removeEventListener("enterFrame", walld[i])
+        		Runtime:removeEventListener("enterFrame", walld1[i])
 			end
 
 			Runtime:removeEventListener("touch",touchScreen)
 			Runtime:removeEventListener("enterFrame", user)
 
 			display.remove(walldGroup)
+			display.remove(walldGroup1)
          	display.remove(user)
 
 			composer.setVariable("score", time)
@@ -146,7 +168,9 @@ function scene:create( event )
 
 			for i=1,10 do
     			walld[i]:removeEventListener("collision")
+    			walld1[i]:removeEventListener("collision")
         		Runtime:removeEventListener("enterFrame", walld[i])
+        		Runtime:removeEventListener("enterFrame", walld1[i])
 			end
 
 			composer.setVariable("score", time)
@@ -155,6 +179,7 @@ function scene:create( event )
 			Runtime:removeEventListener("touch",touchScreen)
 			Runtime:removeEventListener("enterFrame", user)
 			display.remove(walldGroup)
+			display.remove(walldGroup1)
          	display.remove(user)
 			composer.removeScene("view06_chick_game")
 			composer.gotoScene("view07_chick_game_over")
@@ -175,10 +200,8 @@ function scene:create( event )
     for i=1,10 do
         walld[i].collision = onLocalCollision
         walld[i]:addEventListener( "collision" )
-        --[[inv3[i].collision = onLocalCollision
-        inv3[i]:addEventListener( "collision" )
-        inv4[i].collision = onLocalCollision
-        inv4[i]:addEventListener( "collision" )]]
+        walld1[i].collision = onLocalCollision
+        walld1[i]:addEventListener( "collision" )
 	end
 	
 	
