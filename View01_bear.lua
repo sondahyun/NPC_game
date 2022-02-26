@@ -82,7 +82,7 @@ function scene:create( event )
 		timer1=timer.performWithDelay(1000, spawn, 0)
 		section.alpha=0
 		script.alpha=0
-		Runtime:addEventListener( "mouse", bearmove)
+		Runtime:addEventListener( "touch", bearmove)
 	end	
 
 	local function titleremove(event)
