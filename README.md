@@ -1,6 +1,8 @@
-# NPC Game
+# 먹이를 찾아서
 
-Corona SDK(Solar2D) 기반 모바일 스토리 어드벤처 게임
+> Corona SDK(Solar2D) 기반 모바일 스토리 어드벤처 게임
+
+![타이틀 화면](screenshots/title.png)
 
 ## 개요
 
@@ -15,29 +17,67 @@ Corona SDK(Solar2D) 기반 모바일 스토리 어드벤처 게임
 - **데이터**: JSON 기반 스토리 대사 관리
 - **플랫폼**: iOS / Android
 
-## 게임 구조
+## 게임 흐름
 
 ```
 타이틀 화면 → 스테이지 맵(1~5) → NPC 탭 → 스토리 대사 → 미니게임 → 결과 → 다음 스토리
 ```
 
-### 스테이지 맵
-좌우 화살표로 이동하며 NPC를 만날 수 있는 맵 화면 (stage01~05)
+## 스테이지 맵
 
-### 스토리 시스템
+좌우 화살표로 이동하며 NPC를 만날 수 있는 맵 화면입니다.
+
+<p align="center">
+  <img src="screenshots/stage_map.png" width="200" />
+  <img src="screenshots/stage_map2.png" width="200" />
+  <img src="screenshots/stage_map3.png" width="200" />
+</p>
+
+## 스토리 시스템
+
 JSON 파일에서 대사 데이터를 파싱하여 배경, 캐릭터 이미지, 대화를 순차적으로 표시합니다.
+
 - 배경(background), 해설(Narration), 대사(Dialogue) 타입 지원
 - 볼륨 조절 오버레이 내장
 
-### 미니게임 4종
+<p align="center">
+  <img src="screenshots/story.png" width="250" />
+</p>
 
-| 게임 | 캐릭터 | 장르 | 설명 |
-|------|--------|------|------|
-| 물고기 잡기 | 고양이 | 터치 | 제한시간 내 물고기 12마리 탭 |
-| 음식 받기 | 곰 | 물리 | 위에서 떨어지는 음식을 곰으로 받기 (쓰레기 주의) |
-| 숨은 고슴도치 찾기 | 고슴도치 | 탐색 | 배경에 숨은 고슴도치 6마리 찾기 |
-| 장애물 피하기 | 병아리 | 물리/액션 | 플래피버드 스타일 장애물 회피 |
-| 별 잡기 | 강아지 | 터치 | 밤하늘의 별을 시간 내에 수집 (2레벨) |
+## 미니게임
+
+### 물고기 잡기 (고양이)
+제한시간 내 물고기 12마리를 탭하여 잡는 게임
+
+![물고기 잡기](screenshots/minigame_cat.gif)
+
+### 음식 받기 (곰)
+위에서 떨어지는 음식을 곰으로 받기 (쓰레기를 받으면 감점, Box2D 물리 엔진 사용)
+
+![음식 받기](screenshots/minigame_bear.gif)
+
+### 숨은 고슴도치 찾기 (고슴도치)
+배경에 숨은 고슴도치 6마리를 제한시간 내에 찾는 게임
+
+![숨은 고슴도치 찾기](screenshots/minigame_hedgehog.gif)
+
+### 장애물 피하기 (병아리)
+플래피버드 스타일의 장애물 회피 게임 (Box2D 물리 엔진 사용)
+
+![장애물 피하기](screenshots/minigame_chick.gif)
+
+### 별 잡기 (강아지)
+밤하늘의 별을 시간 내에 수집하는 게임 (2레벨 구성)
+
+![별 잡기](screenshots/minigame_dog.gif)
+
+## 일지(다이어리)
+
+게임 진행 중 수집한 이야기를 다시 볼 수 있는 일지 기능
+
+<p align="center">
+  <img src="screenshots/diary.png" width="250" />
+</p>
 
 ## 주요 파일 구조
 
