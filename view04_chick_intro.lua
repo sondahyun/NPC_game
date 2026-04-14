@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------------------
 --
--- view01_dog.lua
+-- view04_chick_intro.lua - 병아리 미니게임 인트로 대사
 --
 -----------------------------------------------------------------------------------------
 -- JSON파싱--
@@ -15,7 +15,7 @@ local function parse()
 		print(Data[1].type)
 	else
 		print(pos)
-		print(print)
+		print(tostring(msg))
 	end
 end
 parse()
@@ -34,8 +34,8 @@ function scene:create( event )
 	local section = display.newRect(display.contentWidth/2, display.contentHeight*0.95, display.contentWidth, display.contentHeight*0.2)
 	section:setFillColor(0.5, 0.5, 0.5, 0.5)
 
-	local script = display.newText("더미 텍스트입니다.", section.x, section.y, display.contentWidth*0., 80)
-	script.width = display.contentWidth*0.05
+	local script = display.newText("더미 텍스트입니다.", section.x, section.y, display.contentWidth * 0.9, 80)
+	script.width = display.contentWidth * 0.9
 	script.size = 50
 	script:setFillColor(0)
 	------------------

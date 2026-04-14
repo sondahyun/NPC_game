@@ -1,10 +1,11 @@
 -----------------------------------------------------------------------------------------
 --
--- view02_dog.lua 레벨1
+-- view02_dog.lua - 강아지 별잡기 레벨1
 --
 -----------------------------------------------------------------------------------------
-local composer = require( "composer" )
+local composer = require("composer")
 local scene = composer.newScene()
+local timer1  -- 타이머 핸들
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -66,13 +67,12 @@ function scene:create( event )
 		print(limit)
 		if(limit <= 0) then
 			timer.cancel( timer1 )
-			audio.pause( explosionSound )
 			composer.removeScene("view02_dog")
 			composer.gotoScene("view03_dog_fail")
 		end
 	end
 
-	timer1=timer.performWithDelay(1000, timeAttack, 0)
+	timer1 = timer.performWithDelay(1000, timeAttack, 0)
 
 	
 	sceneGroup:insert(background)

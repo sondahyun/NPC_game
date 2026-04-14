@@ -1,37 +1,34 @@
 -----------------------------------------------------------------------------------------
 --
--- view1.lua
+-- view1.lua - 볼륨 테스트 씬
 --
 -----------------------------------------------------------------------------------------
 
---test2
-local loadsave = require( "loadsave" )
-local composer = require( "composer" )
+local loadsave = require("loadsave")
+local composer = require("composer")
 local scene = composer.newScene()
-local json = require( "json" ) 
+local json = require("json")
 
 
-function scene:create( event )
+function scene:create(event)
 	local sceneGroup = self.view
-	
-	local background = display.newRect( display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight )
-	background:setFillColor( 1 )
-	
-	
-	sceneGroup:insert( background )
 
-	loadedEnding = loadsave.loadTable( "ending.json" )
-	
-	--샘플 볼륨 이미지
-    local volumeButton = display.newImage("Content/PNG/설정/설정.png")
-    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
-    sceneGroup:insert(volumeButton)
+	local background = display.newRect(display.contentCenterX, display.contentCenterY, display.contentWidth, display.contentHeight)
+	background:setFillColor(1)
+	sceneGroup:insert(background)
 
-    --샘플볼륨함수--
-    local function setVolume(event)
-        composer.showOverlay( "volumeControl", options )
-    end
-    volumeButton:addEventListener("tap",setVolume)
+	local loadedEnding = loadsave.loadTable("ending.json")
+
+	local options = { isModal = true }
+
+	local volumeButton = display.newImage("Content/PNG/설정/설정.png")
+	volumeButton.x, volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+	sceneGroup:insert(volumeButton)
+
+	local function setVolume()
+		composer.showOverlay("volumeControl", options)
+	end
+	volumeButton:addEventListener("tap", setVolume)
 
     local home = audio.loadStream( "음악/음악샘플.mp3" )
     audio.setVolume( loadedEnding.logValue )--loadedEndings.logValue

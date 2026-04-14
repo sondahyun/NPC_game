@@ -1,16 +1,20 @@
---병아리 게임 진행하는 화면
+-----------------------------------------------------------------------------------------
+--
+-- view06_chick_game.lua - 병아리 플래피버드 스타일 미니게임
+--
+-----------------------------------------------------------------------------------------
 
-local composer = require( "composer" )
-
+local composer = require("composer")
 local scene = composer.newScene()
-local explosionSound = audio.loadSound( "Content/PNG/script/It Ain't Right.mp3" )
-audio.play( explosionSound )
+local explosionSound
 
-function scene:create( event )
+function scene:create(event)
 	local sceneGroup = self.view
 
-	--require
-	local physics = require ("physics")
+	explosionSound = audio.loadSound("Content/PNG/script/It Ain't Right.mp3")
+	audio.play(explosionSound)
+
+	local physics = require("physics")
 	physics.start()
 
 	local value1 = {}
@@ -58,16 +62,15 @@ function scene:create( event )
         walld[i] = display.newImageRect(walldGroup,"Content/PNG/chick/장애물.png", display.contentWidth/10, display.contentHeight/25)
         walld[i].x = display.contentWidth*i*0.5 + 400
         walld[i].y = value2[i]
-        sceneGroup:insert(walldGroup)
-        physics.addBody(walld[i], "static")   
+        physics.addBody(walld[i], "static")
 
         walld1[i] = display.newImageRect(walldGroup1,"Content/PNG/chick/장애물2.png", display.contentWidth/10, display.contentHeight/25)
         walld1[i].x = display.contentWidth*i*0.5 + 600
         walld1[i].y = value2_1[i]
-        sceneGroup:insert(walldGroup1)
-
-        physics.addBody(walld1[i], "static")   
+        physics.addBody(walld1[i], "static")
 	end
+	sceneGroup:insert(walldGroup)
+	sceneGroup:insert(walldGroup1)
 
     
 
@@ -87,7 +90,7 @@ function scene:create( event )
 
 	--function--
 
-	function movewall(self, event) -- 장애물 움직임
+	local function movewall(self, event) -- 장애물 움직임
 		if self.x < -display.contentWidth*2.08333 then --4000
 			self.x = display.contentWidth*111.04166 --2000
 		else
@@ -103,7 +106,7 @@ function scene:create( event )
 
     end
 
-	function activeUser(self, event)
+	local function activeUser(self, event)
 		self:applyForce(0, -1.5, self.x, self.y)
 	end
 
@@ -111,7 +114,7 @@ function scene:create( event )
 		self:applyForce(0, 0.3, self.x, self.y)
 	end]]
 
-	function touchScreen(event)
+	local function touchScreen(event)
 		if event.phase == "began" then
 			user.enterFrame = activeUser --위로 이동함
 			Runtime:addEventListener("enterFrame", user)

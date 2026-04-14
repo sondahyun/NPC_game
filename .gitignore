@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Corona/Solar2D 빌드 산출물
+*.app
+*.apk
+*.ipa
+build/
+output/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# 임시 파일
+*.tmp
+*.log
+_deprecated/

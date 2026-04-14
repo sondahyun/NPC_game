@@ -1,182 +1,144 @@
 -----------------------------------------------------------------------------------------
 --
--- view1.lua
+-- diaryviewTest.lua
+-- 일지(다이어리) 뷰어 - 좌우 화살표로 페이지 넘기기
 --
 -----------------------------------------------------------------------------------------
 
--- json 파싱
-local json = require('json')
+local json = require("json")
+local composer = require("composer")
+local scene = composer.newScene()
 
-local Data,pos,msg
+local Data, pos, msg
+local bgMusic
 
 local function parse()
 	local filename = system.pathForFile("Content/JSON/diaryStory.json")
-	Data,pos,msg = json.decodeFile(filename)
+	Data, pos, msg = json.decodeFile(filename)
 
-	-- 디버그
 	if Data then
 		print(Data[1].type)
 	else
-		print(pos)
-		print(msg)
+		print("JSON parse error: " .. tostring(pos))
+		print("Message: " .. tostring(msg))
 	end
-	--
 end
 parse()
---
 
-local composer = require( "composer" )
-local scene = composer.newScene()
-local explosionSound = audio.loadSound( "Content/PNG/script/정혁준_즐거운 추억.mp3" )
-audio.play( explosionSound )
-
-function scene:create( event )
+function scene:create(event)
 	local sceneGroup = self.view
-	
-	local background = display.newImageRect("Content/PNG/diary/일지_배경.png", display.contentWidth, display.contentHeight)
-	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 
-	local speakerImg = display.newRect(display.contentCenterX, display.contentHeight*0.73046875, 1100, 940)
-	local speaker = display.newRect(display.contentCenterX, display.contentHeight*0.2, 700, 700)
+	bgMusic = audio.loadSound("Content/PNG/script/정혁준_즐거운 추억.mp3")
+	audio.play(bgMusic)
+
+	local background = display.newImageRect("Content/PNG/diary/일지_배경.png", display.contentWidth, display.contentHeight)
+	background.x, background.y = display.contentWidth / 2, display.contentHeight / 2
+
+	local speakerImg = display.newRect(display.contentCenterX, display.contentHeight * 0.73046875, 1100, 940)
+	local speaker = display.newRect(display.contentCenterX, display.contentHeight * 0.2, 700, 700)
 	local index = 1
 
 	local button2 = display.newImage("Content/PNG/diary/닫기.png")
-	button2.x,button2.y=display.contentWidth*0.95,display.contentHeight*0.05
+	button2.x, button2.y = display.contentWidth * 0.95, display.contentHeight * 0.05
 
-	local arrowleft=display.newImageRect("Content/PNG/diary/arrow.png",80, 80)
-	arrowleft.xScale= arrowleft.xScale*-1
-	arrowleft.x, arrowleft.y = speaker.x-320, speaker.y - 65
-	arrowleft.alpha=0
-	
-	local arrowright=display.newImageRect("Content/PNG/diary/arrow.png",80, 80)
-	arrowright.x, arrowright.y = speaker.x+320, speaker.y -65
+	local arrowleft = display.newImageRect("Content/PNG/diary/arrow.png", 80, 80)
+	arrowleft.xScale = arrowleft.xScale * -1
+	arrowleft.x, arrowleft.y = speaker.x - 320, speaker.y - 65
+	arrowleft.alpha = 0
 
-	local function nextScript()
-		if(index<=#Data) then
-			arrowleft.alpha=1
-			arrowright.alpha=1
-			if(Data[index].type == "background") then
-				speakerImg.alpha = 1
-				speakerImg.fill = {
-					type = "image",
-					filename = Data[index].img
-				}
+	local arrowright = display.newImageRect("Content/PNG/diary/arrow.png", 80, 80)
+	arrowright.x, arrowright.y = speaker.x + 320, speaker.y - 65
 
-				speaker.alpha = 1
-				speaker.fill = {
-					type = "image",
-					filename = Data[index].img2
-				}
-				if index == #Data then
-					arrowright.alpha=0
-				elseif index == 1 then
-					arrowleft.alpha=0
-				end
-			end
+	local function updateDisplay()
+		if not Data or index < 1 or index > #Data then return end
+
+		arrowleft.alpha = 1
+		arrowright.alpha = 1
+
+		if Data[index].type == "background" then
+			speakerImg.alpha = 1
+			speakerImg.fill = {
+				type = "image",
+				filename = Data[index].img
+			}
+			speaker.alpha = 1
+			speaker.fill = {
+				type = "image",
+				filename = Data[index].img2
+			}
+		end
+
+		-- 첫 페이지면 왼쪽 화살표 숨김
+		if index <= 1 then
+			arrowleft.alpha = 0
+		end
+		-- 마지막 페이지면 오른쪽 화살표 숨김
+		if index >= #Data then
+			arrowright.alpha = 0
 		end
 	end
 
-	local function beforeScript()
-		if(index>=1) then	
-			arrowleft.alpha=1
-			arrowright.alpha=1
-			if(Data[index].type == "background") then
-				speakerImg.alpha = 1
-				speakerImg.fill = {
-					type = "image",
-					filename = Data[index].img
-				}
-				speaker.alpha = 1
-				speaker.fill = {
-					type = "image",
-					filename = Data[index].img2
-				}
-				if index == 1 then
-					arrowleft.alpha=0
-				end
-			end
+	updateDisplay()
+
+	local function tap_next()
+		if index < #Data then
+			index = index + 1
+			updateDisplay()
 		end
 	end
 
-	nextScript()
-	local function tap_next(event)
-		index = index + 1
-		print(index)
-		nextScript()
-	end
-
-	local function tap_before(event)
-		index=index-1	
-		print(index)
-		beforeScript()
+	local function tap_before()
+		if index > 1 then
+			index = index - 1
+			updateDisplay()
+		end
 	end
 
 	arrowleft:addEventListener("tap", tap_before)
-	arrowright:addEventListener("tap",tap_next)
-	
-	local function tap( event )
-		audio.pause( explosionSound )
+	arrowright:addEventListener("tap", tap_next)
+
+	local function tap()
+		if bgMusic then
+			audio.pause(bgMusic)
+		end
 		composer.removeScene("diaryviewTest")
 		composer.gotoScene("View01_main")
 	end
 
-	button2:addEventListener("tap",tap)
-	-- 레이어 정리
+	button2:addEventListener("tap", tap)
+
 	sceneGroup:insert(background)
 	sceneGroup:insert(speakerImg)
 	sceneGroup:insert(speaker)
 	sceneGroup:insert(arrowleft)
 	sceneGroup:insert(arrowright)
 	sceneGroup:insert(button2)
-
-
 end
 
-function scene:show( event )
-	local sceneGroup = self.view
+function scene:show(event)
 	local phase = event.phase
-	
 	if phase == "will" then
-		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then
-		-- Called when the scene is now on screen
-		-- 
-		-- INSERT code here to make the scene come alive
-		-- e.g. start timers, begin animation, play audio, etc.
-	end	
-end
-
-function scene:hide( event )
-	local sceneGroup = self.view
-	local phase = event.phase
-	
-	if event.phase == "will" then
-		-- Called when the scene is on screen and is about to move off screen
-		--
-		-- INSERT code here to pause the scene
-		-- e.g. stop timers, stop animation, unload sounds, etc.)
-	elseif phase == "did" then
-		-- Called when the scene is now off screen
 	end
 end
 
-function scene:destroy( event )
-	local sceneGroup = self.view
-	
-	-- Called prior to the removal of scene's "view" (sceneGroup)
-	-- 
-	-- INSERT code here to cleanup the scene
-	-- e.g. remove display objects, remove touch listeners, save state, etc.
+function scene:hide(event)
+	local phase = event.phase
+	if phase == "will" then
+	elseif phase == "did" then
+		if bgMusic then
+			audio.dispose(bgMusic)
+			bgMusic = nil
+		end
+	end
 end
 
----------------------------------------------------------------------------------
+function scene:destroy(event)
+end
 
--- Listener setup
-scene:addEventListener( "create", scene )
-scene:addEventListener( "show", scene )
-scene:addEventListener( "hide", scene )
-scene:addEventListener( "destroy", scene )
-
------------------------------------------------------------------------------------------
+scene:addEventListener("create", scene)
+scene:addEventListener("show", scene)
+scene:addEventListener("hide", scene)
+scene:addEventListener("destroy", scene)
 
 return scene

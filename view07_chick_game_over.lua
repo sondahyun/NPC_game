@@ -75,7 +75,7 @@ function scene:create( event )
 	sceneGroup:insert(backgame)
 
 	--점수따라 다름
-	if score3 < 15 then
+	if not score3 or score3 < 15 then
 		backgame.alpha = 1
 		fail_close.alpha = 1
 		fail_close:addEventListener("touch",backtogame)
