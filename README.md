@@ -2,7 +2,9 @@
 
 > Corona SDK(Solar2D) 기반 모바일 스토리 어드벤처 게임
 
-![타이틀 화면](screenshots/title.png)
+<p align="center">
+  <img src="screenshots/title.png" width="250" />
+</p>
 
 ## 개요
 
@@ -49,27 +51,27 @@ JSON 파일에서 대사 데이터를 파싱하여 배경, 캐릭터 이미지, 
 ### 물고기 잡기 (고양이)
 제한시간 내 물고기 12마리를 탭하여 잡는 게임
 
-![물고기 잡기](screenshots/minigame_cat.gif)
+<img src="screenshots/minigame_cat.gif" width="250" />
 
 ### 음식 받기 (곰)
 위에서 떨어지는 음식을 곰으로 받기 (쓰레기를 받으면 감점, Box2D 물리 엔진 사용)
 
-![음식 받기](screenshots/minigame_bear.gif)
+<img src="screenshots/minigame_bear.gif" width="250" />
 
 ### 숨은 고슴도치 찾기 (고슴도치)
 배경에 숨은 고슴도치 6마리를 제한시간 내에 찾는 게임
 
-![숨은 고슴도치 찾기](screenshots/minigame_hedgehog.gif)
+<img src="screenshots/minigame_hedgehog.gif" width="250" />
 
 ### 장애물 피하기 (병아리)
 플래피버드 스타일의 장애물 회피 게임 (Box2D 물리 엔진 사용)
 
-![장애물 피하기](screenshots/minigame_chick.gif)
+<img src="screenshots/minigame_chick.gif" width="250" />
 
 ### 별 잡기 (강아지)
 밤하늘의 별을 시간 내에 수집하는 게임 (2레벨 구성)
 
-![별 잡기](screenshots/minigame_dog.gif)
+<img src="screenshots/minigame_dog.gif" width="250" />
 
 ## 일지(다이어리)
 
